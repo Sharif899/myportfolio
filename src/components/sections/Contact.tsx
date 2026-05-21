@@ -1,5 +1,10 @@
 'use client'
-data'
+
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { useState } from 'react'
+import { Send, Mail, MessageSquare, CheckCircle2, Loader2 } from 'lucide-react'
+import { socialLinks } from '@/lib/data'
 import SocialIcon from '@/components/ui/SocialIcon'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
