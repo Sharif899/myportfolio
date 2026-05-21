@@ -14,7 +14,7 @@ export default function Contact() {
   const [formState, setFormState] = useState<FormState>('idle')
   const [form, setForm] = useState({ name: '', email: '', message: '' })
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const const handleSubmit = async (e: React.FormEvent) => {   e.preventDefault()   setFormState('loading')   try {     const res = await fetch('/api/contact', {       method: 'POST',       headers: { 'Content-Type': 'application/json' },       body: JSON.stringify(form),     })     if (res.ok) {       setFormState('success')     } else {       setFormState('error')     }   } catch {     setFormState('error')   } } = async (e: React.FormEvent) => {
     e.preventDefault()
     setFormState('loading')
     // Simulate API call — wire up to your preferred email service (Resend, EmailJS, etc.)
@@ -137,7 +137,7 @@ export default function Contact() {
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="glass-card rounded-sm p-8 space-y-5">
+              <form onSubmit={const handleSubmit = async (e: React.FormEvent) => {   e.preventDefault()   setFormState('loading')   try {     const res = await fetch('/api/contact', {       method: 'POST',       headers: { 'Content-Type': 'application/json' },       body: JSON.stringify(form),     })     if (res.ok) {       setFormState('success')     } else {       setFormState('error')     }   } catch {     setFormState('error')   } }} className="glass-card rounded-sm p-8 space-y-5">
                 <div className="font-mono text-xs text-cyber-500/60 tracking-widest uppercase mb-6">
                   Send a message
                 </div>
