@@ -178,10 +178,6 @@ export default function Contact() {
                   />
                 </div>
 
-                {formState === 'error' && (
-                  <p className="text-red-400 font-mono text-xs">Failed to send. Please try again.</p>
-                )}
-
                 <motion.button
                   type="submit"
                   disabled={formState === 'loading'}
@@ -201,6 +197,12 @@ export default function Contact() {
                     </>
                   )}
                 </motion.button>
+
+                {formState === 'error' && (
+                  <p className="text-red-400 text-xs text-center font-mono">
+                    Something went wrong. Please try again.
+                  </p>
+                )}
               </form>
             )}
           </motion.div>
