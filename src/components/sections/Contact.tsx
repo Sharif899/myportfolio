@@ -14,21 +14,30 @@ export default function Contact() {
   const [formState, setFormState] = useState<FormState>('idle')
   const [form, setForm] = useState({ name: '', email: '', message: '' })
 
-  const const handleSubmit = async (e: React.FormEvent) => {   e.preventDefault()   setFormState('loading')   try {     const res = await fetch('/api/contact', {       method: 'POST',       headers: { 'Content-Type': 'application/json' },       body: JSON.stringify(form),     })     if (res.ok) {       setFormState('success')     } else {       setFormState('error')     }   } catch {     setFormState('error')   } } = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setFormState('loading')
-    // Simulate API call — wire up to your preferred email service (Resend, EmailJS, etc.)
-    await new Promise((r) => setTimeout(r, 1800))
-    setFormState('success')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (res.ok) {
+        setFormState('success')
+      } else {
+        setFormState('error')
+      }
+    } catch {
+      setFormState('error')
+    }
   }
 
   return (
     <section id="contact" className="relative py-32 overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_100%,rgba(0,255,255,0.06)_0%,transparent_60%)]" />
 
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
-        {/* Header */}
         <motion.div
           className="mb-20 text-center"
           initial={{ opacity: 0, y: 30 }}
@@ -50,20 +59,18 @@ export default function Contact() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
-          {/* Left: Contact info */}
           <motion.div
             className="space-y-6"
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2 }}
           >
-            {/* Email block */}
             <div className="glass-card rounded-sm p-6 group hover:border-cyber-500/20 transition-colors">
               <div className="flex items-center gap-3 mb-3">
                 <Mail size={18} className="text-cyber-500" />
                 <span className="font-mono text-xs text-dark-500 tracking-widest uppercase">Email</span>
               </div>
-              <a
+              
                 href="mailto:sherifolabode@gmail.com"
                 className="font-display text-xl font-bold text-white group-hover:text-cyber-500 transition-colors"
               >
@@ -71,7 +78,6 @@ export default function Contact() {
               </a>
             </div>
 
-            {/* Response time */}
             <div className="glass-card rounded-sm p-6">
               <div className="flex items-center gap-3 mb-3">
                 <MessageSquare size={18} className="text-neon-purple" />
@@ -81,7 +87,6 @@ export default function Contact() {
               <p className="text-dark-400 text-sm mt-1">Usually much faster.</p>
             </div>
 
-            {/* Social links */}
             <div className="glass-card rounded-sm p-6">
               <div className="font-mono text-xs text-dark-500 tracking-widest uppercase mb-5">
                 Find me online
@@ -103,16 +108,14 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Availability note */}
             <div className="flex items-center gap-3 px-4 py-3 glass rounded-sm border border-green-500/20">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               <span className="font-mono text-xs text-dark-300">
-                Open to freelance & full-time opportunities
+                Open to freelance &amp; full-time opportunities
               </span>
             </div>
           </motion.div>
 
-          {/* Right: Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -137,7 +140,7 @@ export default function Contact() {
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={const handleSubmit = async (e: React.FormEvent) => {   e.preventDefault()   setFormState('loading')   try {     const res = await fetch('/api/contact', {       method: 'POST',       headers: { 'Content-Type': 'application/json' },       body: JSON.stringify(form),     })     if (res.ok) {       setFormState('success')     } else {       setFormState('error')     }   } catch {     setFormState('error')   } }} className="glass-card rounded-sm p-8 space-y-5">
+              <form onSubmit={handleSubmit} className="glass-card rounded-sm p-8 space-y-5">
                 <div className="font-mono text-xs text-cyber-500/60 tracking-widest uppercase mb-6">
                   Send a message
                 </div>
@@ -194,6 +197,12 @@ export default function Contact() {
                     </>
                   )}
                 </motion.button>
+
+                {formState === 'error' && (
+                  <p className="text-red-400 font-mono text-xs text-center">
+                    Something went wrong. Try emailing directly.
+                  </p>
+                )}
               </form>
             )}
           </motion.div>
