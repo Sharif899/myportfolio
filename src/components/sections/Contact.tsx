@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
@@ -135,7 +135,7 @@ export default function Contact() {
                   onClick={() => { setFormState('idle'); setForm({ name: '', email: '', message: '' }) }}
                   className="mt-6 font-mono text-xs text-cyber-500 hover:text-white transition-colors"
                 >
-                  Send another →
+                  Send another ?
                 </button>
               </motion.div>
             ) : (
