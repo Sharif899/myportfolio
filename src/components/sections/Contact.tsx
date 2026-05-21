@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
@@ -36,7 +36,6 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_100%,rgba(0,255,255,0.06)_0%,transparent_60%)]" />
-
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
         <motion.div
           className="mb-20 text-center"
@@ -144,7 +143,6 @@ export default function Contact() {
                 <div className="font-mono text-xs text-cyber-500/60 tracking-widest uppercase mb-6">
                   Send a message
                 </div>
-
                 {[
                   { label: 'Name', key: 'name', type: 'text', placeholder: 'Your name' },
                   { label: 'Email', key: 'email', type: 'email', placeholder: 'your@email.com' },
@@ -163,7 +161,6 @@ export default function Contact() {
                     />
                   </div>
                 ))}
-
                 <div>
                   <label className="block font-mono text-xs text-dark-500 mb-2 tracking-wider uppercase">
                     Message
@@ -177,7 +174,6 @@ export default function Contact() {
                     className="w-full bg-dark-900/60 border border-dark-700 focus:border-cyber-500/50 rounded-sm px-4 py-3 text-sm text-white placeholder-dark-600 outline-none transition-colors duration-200 resize-none font-body"
                   />
                 </div>
-
                 <motion.button
                   type="submit"
                   disabled={formState === 'loading'}
@@ -197,7 +193,6 @@ export default function Contact() {
                     </>
                   )}
                 </motion.button>
-
                 {formState === 'error' && (
                   <p className="text-red-400 text-xs text-center font-mono">
                     Something went wrong. Please try again.
