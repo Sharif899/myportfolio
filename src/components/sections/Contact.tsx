@@ -70,7 +70,7 @@ export default function Contact() {
                 <span className="font-mono text-xs text-dark-500 tracking-widest uppercase">Email</span>
               </div>
               
-                href="mailto:sherifolabode@gmail.com"
+                <a href="mailto:sherifolabode@gmail.com"
                 className="font-display text-xl font-bold text-white group-hover:text-cyber-500 transition-colors"
               >
                 sherifolabode@gmail.com
