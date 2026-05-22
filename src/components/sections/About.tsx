@@ -32,12 +32,12 @@ const pillars = [
 ]
 
 const timeline = [
-  { year: '2019', event: 'Started with HTML/CSS/JS. Built my first project.' },
-  { year: '2020', event: 'Went deep on React & Node.js. First freelance client.' },
-  { year: '2021', event: 'Fell into Web3 rabbit hole. Deployed first smart contract.' },
-  { year: '2022', event: 'Built and launched 3 DeFi products. Joined a Web3 startup.' },
-  { year: '2023', event: 'Pivoted to AI. Built LLM tools and shipped to thousands of users.' },
-  { year: '2024', event: 'Full-time vibecoder. Building products at the intersection of all of it.' },
+  { year: '2023', event: 'Started with HTML/CSS/JS. Built my first project.' },
+  { year: '2024', event: 'Went deep on React & Node.js. First freelance client.' },
+  { year: '2024', event: 'Fell into Web3 rabbit hole. Deployed first smart contract.' },
+  { year: '2024', event: 'Built and launched 3 DeFi products. Joined a Web3 startup.' },
+  { year: '2025', event: 'Pivoted to AI. Built LLM tools and shipped to thousands of users.' },
+  { year: '2025', event: 'Full-time vibecoder. Building products at the intersection of all of it.' },
 ]
 
 export default function About() {
