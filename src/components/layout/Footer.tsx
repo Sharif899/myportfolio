@@ -46,7 +46,10 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col gap-2 border-t border-hairline pt-6 text-sm text-ink-faint sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Sherif Olabode. All rights reserved.</p>
-          <p>Built with Next.js. No tracking, no cookies, no form that goes nowhere.</p>
+          <p>
+            Built by hand with Next.js — no template, no tracking, no cookies.
+            Last updated 25 November 2026.
+          </p>
         </div>
       </div>
     </footer>

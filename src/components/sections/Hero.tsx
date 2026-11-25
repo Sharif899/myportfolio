@@ -1,4 +1,4 @@
-import { ArrowDown, Mail } from 'lucide-react'
+import { ArrowDown } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 import { siteConfig } from '@/lib/data'
 
@@ -18,10 +18,10 @@ export default function Hero() {
             <em className="not-italic text-pine">good enough to ship.</em>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft md:text-xl">
-            For seven years I have scored large language models, audited the people
-            who label their data, and built the software that makes those judgements
-            reproducible. The work is not a feeling about a model — it is a rubric,
-            a number, and a paper trail.
+            I have spent seven years scoring large language models, auditing the
+            people who label their data, and building the software that turns
+            those judgements into something you can check. A verdict you cannot
+            explain is a guess. So I build the explanation into the tool.
           </p>
         </Reveal>
 
@@ -35,26 +35,22 @@ export default function Hero() {
             {' · '}
             <a className="text-link" href="#experience">12,000+ responses scored at 97% quality</a>
             {' · '}
-            <a className="text-link" href="#work">6 open-source evaluation tools</a>
+            <a className="text-link" href="#work">5 open-source evaluation tools</a>
           </p>
         </Reveal>
 
         <Reveal delay={200}>
-          <div className="mt-10 flex flex-wrap items-center gap-3">
+          <div className="mt-10">
             <a href="#work" className="btn-primary">
               Read the work
               <ArrowDown size={16} aria-hidden="true" />
             </a>
-            <a href={`mailto:${siteConfig.email}`} className="btn-secondary">
-              <Mail size={16} aria-hidden="true" />
-              Email me
-            </a>
-            <p className="ml-1 flex items-center gap-2 text-sm text-ink-muted">
-              <span
-                className="inline-block h-2 w-2 rounded-full bg-pine"
-                aria-hidden="true"
-              />
-              Available for remote evaluation and engineering work
+            <p className="mt-6 max-w-2xl border-l-2 border-pine pl-4 text-base leading-relaxed text-ink-muted">
+              Currently building a Spark + MLflow evaluation pipeline — and
+              taking on remote evaluation and engineering work. Write to me:{' '}
+              <a className="text-link" href={`mailto:${siteConfig.email}`}>
+                {siteConfig.email}
+              </a>
             </p>
           </div>
         </Reveal>

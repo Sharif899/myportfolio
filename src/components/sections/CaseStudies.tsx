@@ -39,7 +39,7 @@ export default function CaseStudies() {
           number="01"
           kicker="Selected work"
           title="Four tools that encode how I evaluate"
-          intro="Each one started as a problem I kept meeting in real evaluation work. Each one is public, tested, and honest about what it cannot do."
+          intro="Each one started as a problem I kept running into while doing the job. All five are public, all five have tests, and the READMEs say where each tool stops. A tool that hides its limits is a demo, not a tool."
         />
 
         <div className="flex flex-col gap-14 md:gap-20">
@@ -49,8 +49,14 @@ export default function CaseStudies() {
                 aria-labelledby={`case-${study.id}`}
                 className="grid gap-6 rounded-sm border border-hairline bg-surface p-6 md:grid-cols-[220px_1fr] md:gap-10 md:p-10"
               >
-                {/* Fact column */}
-                <div className="border-b border-hairline pb-5 md:border-b-0 md:border-r md:pb-0 md:pr-8">
+                {/* Fact column — alternates sides so the four entries do not read as one repeated card */}
+                <div
+                  className={
+                    i % 2 === 1
+                      ? 'border-b border-hairline pb-5 md:order-2 md:border-b-0 md:border-l md:pb-0 md:pl-8'
+                      : 'border-b border-hairline pb-5 md:border-b-0 md:border-r md:pb-0 md:pr-8'
+                  }
+                >
                   <p className="font-display text-4xl font-medium text-pine">
                     {study.index}
                   </p>
@@ -96,7 +102,7 @@ export default function CaseStudies() {
                 </div>
 
                 {/* Narrative column */}
-                <div>
+                <div className={i % 2 === 1 ? 'md:order-1' : ''}>
                   <h3
                     id={`case-${study.id}`}
                     className="font-display text-2xl font-medium leading-snug text-ink md:text-3xl"
@@ -131,8 +137,8 @@ export default function CaseStudies() {
           <div className="mt-16 md:mt-20">
             <h3 className="font-display text-2xl font-medium text-ink">More work</h3>
             <p className="mt-2 max-w-2xl text-base leading-relaxed text-ink-soft">
-              One more evaluation tool, one live product, and five earlier builds —
-              listed briefly, because the case studies above are the argument.
+              One more evaluation tool, one live product, five earlier builds.
+              Listed briefly — the case studies above are the argument.
             </p>
             <ul className="mt-8 divide-y divide-hairline border-y border-hairline">
               {moreWork.map((item) => (

@@ -25,10 +25,10 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: 'Work', href: '#work' },
-  { label: 'Method', href: '#method' },
+  { label: 'Beliefs', href: '#beliefs' },
+  { label: 'Notes', href: '#notes' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Expertise', href: '#expertise' },
-  { label: 'Education', href: '#education' },
+  { label: 'Tools', href: '#expertise' },
   { label: 'Writing', href: '#writing' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -64,7 +64,7 @@ export const caseStudies: CaseStudy[] = [
     id: 'llm-eval-toolkit',
     index: '01',
     title: 'llm-eval-toolkit',
-    oneLiner: 'Rubric-based LLM evaluation that can be audited, not just felt.',
+    oneLiner: 'Rubric-based LLM evaluation with a paper trail.',
     problem:
       'LLM evaluation done by feel does not scale and cannot be audited. Two reviewers can read the same response and reach different verdicts, and nobody can say why.',
     approach:
@@ -102,7 +102,7 @@ export const caseStudies: CaseStudy[] = [
     approach:
       'Ten attack techniques, refusal classification, unsafe-output detection by harm category, and attack success rate plus a consistency score, all offline and deterministic. The mock target model’s compliance responses are realistic but never actionable: the toolkit measures vulnerability, it does not teach it.',
     outcome:
-      '82 tests passing, CI green. The example run throws 180 attacks at the mock model; it complies with half of them (ASR 50.0%) and its answers are consistent 0.0% of the time. The point of the tool is to make that number visible — not to hide it.',
+      '82 tests passing, CI green. The example run throws 180 attacks at the mock model. It complies with half of them — ASR 50.0% — and its answers are consistent 0.0% of the time. The number is ugly, and it is exactly what the tool is for.',
     evidence: ['82 tests passing', 'CI green', 'ASR 50.0% · consistency 0.0% on the example run'],
     stack: ['Python', 'Standard library', 'pytest', 'CLI'],
     repo: 'https://github.com/Sharif899/ai-safety-red-teaming',
@@ -188,37 +188,75 @@ export const moreWork: MoreWorkItem[] = [
   },
 ]
 
-export interface Principle {
+export interface Belief {
   index: string
   title: string
   body: string
+  showsUpLabel: string
+  showsUpHref: string
 }
 
-export const principles: Principle[] = [
+export const beliefs: Belief[] = [
   {
     index: '01',
-    title: 'Score against a rubric, not a feeling',
-    body: 'A verdict that cannot be explained cannot be defended. Every response I score is judged on named criteria — factual accuracy, reasoning, instruction adherence, helpfulness, safety — each with a rationale and evidence quoted from the response itself.',
+    title: 'If two annotators disagree, the rubric is broken',
+    body: 'Disagreement is not noise to average away. It is the rubric telling you the task is unclear, the categories overlap, or the instructions contradict each other. I measure agreement — Cohen’s kappa — on every evaluation I run, and I treat a low kappa as a finding about the task design. Fix the rubric, then re-score. Do not average two wrong answers and call the middle right.',
+    showsUpLabel: 'Kappa and IoU agreement, measured in annotation-qa-toolkit',
+    showsUpHref: 'https://github.com/Sharif899/annotation-qa-toolkit',
   },
   {
     index: '02',
-    title: 'Agreement is the metric',
-    body: 'If two annotators cannot agree, the rubric is the problem, not the annotators. I measure inter-annotator agreement (Cohen’s kappa) on every evaluation I run, and I treat a low kappa as a finding about the task design — not a reason to average the disagreement away.',
+    title: 'A leaderboard measures the benchmark, not the model',
+    body: 'A model can top a public leaderboard and still be talked into harmful compliance in three turns. I score against a rubric I can defend, then I attack the model — roleplay, authority framing, escalation, encoding — and I quote the attack success rate as it is. In the example run for the red-teaming toolkit it is 50%. A safety number you can trust has to survive being ugly.',
+    showsUpLabel: 'Ten attack techniques and ASR scoring in ai-safety-red-teaming',
+    showsUpHref: 'https://github.com/Sharif899/ai-safety-red-teaming',
   },
   {
     index: '03',
-    title: 'Adversarial by default',
-    body: 'A model that passes a benchmark can still be talked into compliance. I test with roleplay, authority framing, escalation and encoding before I trust a safety score — and I report the attack success rate plainly, even when it is 50%.',
+    title: 'A confidence number that is not calibrated is a guess',
+    body: 'A model that says it is 90% sure and is right 60% of the time is not confident. It is loud. I measure expected calibration error and Brier score, and I scale the confidence before I quote it. And I say plainly when the scaling was fitted on the same data it is measured on, because that flatters the result and most people will not tell you.',
+    showsUpLabel: 'ECE, Brier score and temperature scaling in ml-evaluation-toolkit',
+    showsUpHref: 'https://github.com/Sharif899/ml-evaluation-toolkit',
   },
   {
     index: '04',
-    title: 'Calibration before claims',
-    body: 'A model that is 90% confident and right 60% of the time is not 90% confident. I measure calibration — expected calibration error, Brier score, reliability bins — and I scale confidence before I quote it.',
+    title: 'A verdict you cannot explain is not a verdict',
+    body: '“The model felt wrong” is not an evaluation. Every response I score is judged on named criteria — factual accuracy, reasoning, instruction adherence, helpfulness, safety — each with a rationale and a quote from the response itself. If I cannot show my working, I do not ship the score.',
+    showsUpLabel: 'Rubric scoring with evidence quotes in llm-eval-toolkit',
+    showsUpHref: 'https://github.com/Sharif899/llm-eval-toolkit',
+  },
+]
+
+export const beliefsCoda =
+  'One more thing, less a belief than a rule: nothing leaves the room. The data you evaluate on is usually the most sensitive thing a company holds — real prompts, real failures, real customers. My tools run offline, with no API key and no network call. The method is public and the code is on GitHub. The data stays where it is.'
+
+export interface Story {
+  index: string
+  title: string
+  paragraphs: string[]
+  source: string
+}
+
+export const stories: Story[] = [
+  {
+    index: '01',
+    title: 'The duplicate that cost a company its customers’ trust',
+    paragraphs: [
+      'At Seamfix, the same person kept coming back as two customers. A retried request, a mistyped document number, a second application — each one created a new record. Each new record meant a support ticket, a confused agent, and a customer asked to prove who they were twice.',
+      'The fix was not a better form. It was a rule: a document number belongs to one application, and a retried request returns the application that already exists instead of making a second one. Duplicate records fell 75%. API response time fell 39% on systems handling 20,000+ requests a day.',
+      'The KYC service on this page is the same decision, rebuilt in the open — a state machine with an audit log, duplicate detection that answers with the existing application, and idempotency keys so a retry can never create a second customer.',
+    ],
+    source: 'Seamfix Nigeria, 2020–present · figures from the CV',
   },
   {
-    index: '05',
-    title: 'Nothing leaves the room',
-    body: 'Evaluation data is often the most sensitive data a company holds. My tooling is offline and deterministic: no API keys, no network calls, no client data in the repository. The method is public; the data stays private.',
+    index: '02',
+    title: 'The ugly number I published anyway',
+    paragraphs: [
+      'The first time I ran the red-teaming toolkit end to end, the mock model complied with half of 180 attacks. Fifty per cent. I could have made the mock safer — softened its responses, tuned it until the number looked respectable — and nobody reading the README would have known.',
+      'I left it. A toolkit that only reports good numbers is a press release, not a test. The point of the tool is to show you the number you would rather not see, because that is the only number worth acting on.',
+      'Consistency: 0.0%. The model contradicts itself on the same request. That is in the README too.',
+    ],
+    source: 'ai-safety-red-teaming, example run · 180 attacks, ASR 50.0%',
   },
 ]
 
@@ -251,7 +289,7 @@ export const engagements: Engagement[] = [
     title: 'Full-stack product builds',
     scope:
       'Production web products in Next.js, TypeScript and Supabase — from a live property marketplace to the evaluation tools on this page.',
-    proof: 'OsogboRent live at osogborent.com · 6 open-source tools shipped in 2026',
+    proof: 'OsogboRent live at osogborent.com · 5 open-source evaluation tools shipped in 2026',
   },
 ]
 
@@ -309,35 +347,67 @@ export const experience: ExperienceRole[] = [
   },
 ]
 
+export interface Capability {
+  name: string
+  why: string
+}
+
 export interface CapabilityGroup {
   category: string
-  items: string[]
+  items: Capability[]
 }
 
 export const capabilities: CapabilityGroup[] = [
   {
     category: 'AI evaluation & training data',
     items: [
-      'LLM evaluation',
-      'RLHF',
-      'Rubric design',
-      'Annotation QA',
-      'Cohen’s kappa',
-      'Hallucination detection',
-      'Red-teaming',
-      'Calibration',
+      { name: 'LLM evaluation', why: 'the day job — scoring responses against a rubric, with the working shown.' },
+      { name: 'RLHF', why: 'pairwise comparison is how a preference becomes a number.' },
+      { name: 'Rubric design', why: 'a rubric is a contract: if it cannot be explained, it cannot be defended.' },
+      { name: 'Annotation QA', why: 'labels are the training data. Bad labels are a bad model, later.' },
+      { name: 'Cohen’s kappa', why: 'the one number that says whether your annotators agree or are guessing together.' },
+      { name: 'Hallucination detection', why: 'factual checks against a reference — not a second opinion from the same model.' },
+      { name: 'Red-teaming', why: 'benchmarks flatter models. Adversaries do not.' },
+      { name: 'Calibration', why: 'confidence you can quote has to be measured first.' },
     ],
   },
-  { category: 'Languages', items: ['Python', 'Java', 'TypeScript', 'SQL'] },
+  {
+    category: 'Languages',
+    items: [
+      { name: 'Python', why: 'the evaluation tools are stdlib-only Python. A scoring harness should have no moving parts.' },
+      { name: 'Java', why: 'what Seamfix runs in production. Boring, typed, auditable.' },
+      { name: 'TypeScript', why: 'the product work — OsogboRent and this site.' },
+      { name: 'SQL', why: 'evaluation at Databricks scale runs on SQL and Spark, not spreadsheets.' },
+    ],
+  },
   {
     category: 'Data & ML',
-    items: ['pandas', 'NumPy', 'scikit-learn', 'Apache Spark', 'MLflow'],
+    items: [
+      { name: 'pandas', why: 'every report in the toolkits starts as a DataFrame.' },
+      { name: 'NumPy', why: 'the arithmetic under the metrics.' },
+      { name: 'scikit-learn', why: 'the reference implementation I check my own metrics against.' },
+      { name: 'Apache Spark', why: 'evaluation pipelines for 20+ models at Databricks — and the Spark + MLflow pipeline I am building now.' },
+      { name: 'MLflow', why: 'runs, parameters and metrics logged where anyone can find them.' },
+    ],
   },
   {
     category: 'Backend',
-    items: ['Spring Boot', 'PostgreSQL', 'Supabase', 'Docker'],
+    items: [
+      { name: 'Spring Boot', why: 'the KYC service: state machines, idempotency keys, audit logs.' },
+      { name: 'PostgreSQL', why: 'the KYC service’s production store, via Supabase.' },
+      { name: 'Supabase', why: 'auth, storage and Postgres for OsogboRent.' },
+      { name: 'Docker', why: 'the KYC service ships containerised. The evaluation tools do not need it, so they do not have it.' },
+    ],
   },
-  { category: 'Web', items: ['Next.js', 'React', 'Tailwind CSS', 'Node.js'] },
+  {
+    category: 'Web',
+    items: [
+      { name: 'Next.js', why: 'this site and OsogboRent.' },
+      { name: 'React', why: 'the UI layer for both.' },
+      { name: 'Tailwind CSS', why: 'utility CSS: fast to write, easy to delete.' },
+      { name: 'Node.js', why: 'the runtime behind the product work.' },
+    ],
+  },
 ]
 
 export const education = [

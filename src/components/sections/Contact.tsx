@@ -10,7 +10,7 @@ export default function Contact() {
         <Reveal>
           <div className="max-w-2xl">
             <p className="flex items-baseline gap-3">
-              <span className="section-number">08</span>
+              <span className="section-number">09</span>
               <span className="kicker">Contact</span>
             </p>
             <h2
@@ -23,8 +23,8 @@ export default function Contact() {
               I am available for remote evaluation and engineering work — LLM
               evaluation and benchmarking, annotation QA, KYC and onboarding
               systems, and full-stack product builds. Tell me what you need
-              measured or built, and I will give you a straight answer about
-              whether I am the right person for it.
+              measured or built. I will tell you straight whether I am the
+              right person for it — and if I am not, I will tell you that too.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">

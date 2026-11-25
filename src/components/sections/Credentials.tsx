@@ -13,12 +13,17 @@ export default function Credentials() {
         <Reveal>
           <div className="mb-10 md:mb-14">
             <p className="flex items-baseline gap-3">
-              <span className="section-number">06</span>
+              <span className="section-number">07</span>
               <span className="kicker">Education &amp; credentials</span>
             </p>
             <h2 id="education-heading" className="section-title mt-3 max-w-2xl">
-              Trained to measure, not just to build
+              Why the PhD matters
             </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
+              The degrees are not decoration. My PhD thesis was about data
+              quality and annotation consistency — the research the tools on
+              this page apply, written as software.
+            </p>
           </div>
         </Reveal>
 
@@ -67,11 +72,6 @@ export default function Credentials() {
                   </li>
                 ))}
               </ol>
-              <p className="mt-8 text-sm leading-relaxed text-ink-muted">
-                The PhD thesis — on data quality and annotation consistency — is
-                the research behind the method in section 02. The work did not
-                start with the tools; the tools are the thesis, applied.
-              </p>
             </div>
           </Reveal>
         </div>

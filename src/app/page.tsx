@@ -1,7 +1,8 @@
 import Navbar from '@/components/layout/Navbar'
 import Hero from '@/components/sections/Hero'
 import CaseStudies from '@/components/sections/CaseStudies'
-import Method from '@/components/sections/Method'
+import Beliefs from '@/components/sections/Beliefs'
+import Stories from '@/components/sections/Stories'
 import Engagements from '@/components/sections/Engagements'
 import Experience from '@/components/sections/Experience'
 import Expertise from '@/components/sections/Expertise'
@@ -17,7 +18,8 @@ export default function Home() {
       <main id="main">
         <Hero />
         <CaseStudies />
-        <Method />
+        <Beliefs />
+        <Stories />
         <Engagements />
         <Experience />
         <Expertise />

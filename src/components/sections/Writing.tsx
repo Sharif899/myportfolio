@@ -13,7 +13,7 @@ export default function Writing() {
         <Reveal>
           <div className="mb-10 md:mb-14">
             <p className="flex items-baseline gap-3">
-              <span className="section-number">07</span>
+              <span className="section-number">08</span>
               <span className="kicker">Writing</span>
             </p>
             <h2 id="writing-heading" className="section-title mt-3 max-w-2xl">

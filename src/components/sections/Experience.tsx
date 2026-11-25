@@ -12,15 +12,15 @@ export default function Experience() {
         <Reveal>
           <div className="mb-10 md:mb-14">
             <p className="flex items-baseline gap-3">
-              <span className="section-number">04</span>
+              <span className="section-number">05</span>
               <span className="kicker">Experience</span>
             </p>
             <h2 id="experience-heading" className="section-title mt-3 max-w-2xl">
-              Seven years, four rooms
+              Where the numbers come from
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
-              What each role changed, not what it involved. Duties are on the CV;
-              outcomes are here.
+              Every number on this page was earned in one of these four places.
+              The duties are on the CV. What changed is here.
             </p>
           </div>
         </Reveal>

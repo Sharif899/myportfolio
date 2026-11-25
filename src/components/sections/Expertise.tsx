@@ -12,36 +12,41 @@ export default function Expertise() {
         <Reveal>
           <div className="mb-10 md:mb-14">
             <p className="flex items-baseline gap-3">
-              <span className="section-number">05</span>
-              <span className="kicker">Expertise</span>
+              <span className="section-number">06</span>
+              <span className="kicker">Tools</span>
             </p>
             <h2 id="expertise-heading" className="section-title mt-3 max-w-2xl">
-              What I can actually do
+              What I reach for, and why
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
-              No percentages, no self-assessed scores — a capability is either
-              demonstrated in the work above or it is not listed.
+              Tools are choices, not a list. Each one below is there because
+              it earned its place — the sentence next to it says how.
             </p>
           </div>
         </Reveal>
 
-        <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {capabilities.map((group, i) => (
-            <Reveal key={group.category} delay={(i % 3) * 60}>
-              <div className="border-t border-hairline pt-5">
+        <div className="space-y-12">
+          {capabilities.map((group) => (
+            <Reveal key={group.category}>
+              <div>
                 <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-ink">
                   {group.category}
                 </h3>
-                <ul className="mt-4 flex flex-wrap gap-2">
+                <dl className="mt-5 divide-y divide-hairline border-y border-hairline">
                   {group.items.map((item) => (
-                    <li
-                      key={item}
-                      className="rounded-full border border-hairline bg-surface px-3 py-1.5 text-sm text-ink-soft"
+                    <div
+                      key={item.name}
+                      className="grid gap-1 py-3.5 sm:grid-cols-[180px_1fr] sm:gap-6"
                     >
-                      {item}
-                    </li>
+                      <dt className="text-base font-semibold text-ink">
+                        {item.name}
+                      </dt>
+                      <dd className="text-base leading-relaxed text-ink-soft">
+                        {item.why}
+                      </dd>
+                    </div>
                   ))}
-                </ul>
+                </dl>
               </div>
             </Reveal>
           ))}
