@@ -125,6 +125,38 @@ export const caseStudies: CaseStudy[] = [
     repo: 'https://github.com/Sharif899/annotation-qa-toolkit',
     year: '2026',
   },
+  {
+    id: 'northstar-eval-platform',
+    index: '05',
+    title: 'northstar-eval-platform',
+    oneLiner: 'Client work: an evaluation platform that tells a team whether a model is safe to release.',
+    problem:
+      'Northstar AI Systems needed to know, before every release, whether their customer-support assistant was reliable, accurate and safe, and where a new model or prompt had regressed. A benchmark score does not answer that. A release decision needs the failure, the evidence for it, and a human in the loop.',
+    approach:
+      'A deterministic platform, not a judge model. CSV and JSONL dataset loading with strict validation; a configurable LLM client over the standard library, keys from the environment only; five-metric 1–5 scoring (factual accuracy, relevance, instruction following, citation quality, safety) with a structured rationale for every score; citation checks against the actual source documents, so invented citations and unsupported claims are penalised; A/B comparison with per-category deltas and item-level improvements and regressions; a persisted human review queue for low-confidence results; Markdown and JSON reports; a CLI and a web UI over the same code paths. A design report documents the scoring model, the honest limits of automated judging, and a ten-step production-hardening plan.',
+    outcome:
+      '123 tests passing, CI green. On the 28-item sample dataset the candidate model scores 4.45 against a 5.00 baseline, a 42.9-point pass-rate drop concentrated in safety and citation, with 12 regressions and none improved. The two safety failures are the release blockers, and the review queue is where a human overrules the scorer.',
+    evidence: ['123 tests passing', 'CI green', 'Client work · Northstar AI Systems'],
+    stack: ['Python', 'FastAPI', 'SQLite', 'pytest', 'CLI'],
+    repo: 'https://github.com/Sharif899/northstar-eval-platform',
+    year: '2026',
+  },
+  {
+    id: 'yoruba-llm-benchmark',
+    index: '06',
+    title: 'yoruba-llm-benchmark',
+    oneLiner: 'A benchmark that scores LLMs in Yoruba, not in translation.',
+    problem:
+      'Most LLM benchmarks are English. A model can look fluent in Yoruba while failing the basics: wrong numbers, missing diacritics that change meaning, refusals it cannot phrase, instructions it ignores. There was no standard way to measure any of that.',
+    approach:
+      '60 items across six categories (factual QA, maths, instruction following, safety, translation, reasoning), each with a Yoruba prompt, a Yoruba reference and English glosses. Deterministic five-criterion rubric scoring with Yoruba adaptations: diacritic-folded matching reported separately and never scored, Yoruba number words compared as values, Yoruba reasoning markers and refusal phrases. A CLI scores any model’s recorded responses strictly, and three documented rule-based mocks show what the numbers mean.',
+    outcome:
+      '117 tests passing, CI green. The strong Yoruba mock scores 4.667 with a 100% pass rate; the English-biased mock scores 3.077 with an 8.3% pass rate, passing only the five Yoruba-to-English translation items. The gap between those two numbers is the benchmark doing its job.',
+    evidence: ['117 tests passing', 'CI green', '60 items · 6 categories'],
+    stack: ['Python', 'Standard library', 'pytest', 'CLI'],
+    repo: 'https://github.com/Sharif899/yoruba-llm-benchmark',
+    year: '2026',
+  },
 ]
 
 export interface MoreWorkItem {
@@ -149,6 +181,20 @@ export const moreWork: MoreWorkItem[] = [
       'Pure-Python scoring (rubrics, factual checks, calibration, kappa), a PySpark job for distributed scoring, and MLflow run tracking and comparison.',
     proof: '87 tests · CI green · model-a mean 3.885 vs model-b 3.52',
     repo: 'https://github.com/Sharif899/spark-mlflow-eval-pipeline',
+  },
+  {
+    title: 'sql-eval-analytics',
+    description:
+      'PostgreSQL-first analytics for AI evaluation operations: annotator agreement, review turnaround, reject rates, calibration, duplicates and workload, over ten queries a QA lead actually runs.',
+    proof: '34 tests · agreement 80.0% · κ 0.643',
+    repo: 'https://github.com/Sharif899/sql-eval-analytics',
+  },
+  {
+    title: 'docker-eval-service',
+    description:
+      'The evaluation API, containerised: deterministic rubric scoring and pairwise comparison over PostgreSQL, with migrations, a multi-stage image and compose for the whole stack.',
+    proof: 'CI green · FastAPI + PostgreSQL · Docker',
+    repo: 'https://github.com/Sharif899/docker-eval-service',
   },
   {
     title: 'OsogboRent',
@@ -297,7 +343,7 @@ export const engagements: Engagement[] = [
     title: 'Full-stack product builds',
     scope:
       'Production web products in Next.js, TypeScript and Supabase, from a live property marketplace to the evaluation tools on this page.',
-    proof: 'OsogboRent live at osogborent.com · 6 open-source evaluation tools shipped in 2026',
+    proof: 'OsogboRent live at osogborent.com · 10 open-source evaluation tools shipped in 2026',
   },
 ]
 
@@ -382,7 +428,7 @@ export const capabilities: CapabilityGroup[] = [
   {
     category: 'Languages',
     items: [
-      { name: 'Python', why: 'the evaluation tools are stdlib-only Python. A scoring harness should have no moving parts.' },
+      { name: 'Python', why: 'the scoring itself is stdlib-only Python. A scoring harness should have no moving parts.' },
       { name: 'Java', why: 'what Seamfix runs in production. Boring, typed, auditable.' },
       { name: 'TypeScript', why: 'the product work: OsogboRent and this site.' },
       { name: 'SQL', why: 'evaluation at Databricks scale runs on SQL and Spark, not spreadsheets.' },
@@ -404,7 +450,7 @@ export const capabilities: CapabilityGroup[] = [
       { name: 'Spring Boot', why: 'the KYC service: state machines, idempotency keys, audit logs.' },
       { name: 'PostgreSQL', why: 'the KYC service’s production store, via Supabase.' },
       { name: 'Supabase', why: 'auth, storage and Postgres for OsogboRent.' },
-      { name: 'Docker', why: 'the KYC service ships containerised. The evaluation tools do not need it, so they do not have it.' },
+      { name: 'Docker', why: 'the KYC service and the evaluation API ship containerised. Everything else runs as plain Python, because it does not need a container.' },
     ],
   },
   {
