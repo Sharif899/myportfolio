@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin, Globe } from 'lucide-react'
+import { Github, Twitter, Linkedin, Globe, Mail } from 'lucide-react'
 
 interface SocialIconProps {
   icon: string
@@ -16,6 +16,8 @@ export default function SocialIcon({ icon, size = 18, className }: SocialIconPro
       return <Twitter {...props} />
     case 'linkedin':
       return <Linkedin {...props} />
+    case 'mail':
+      return <Mail {...props} />
     case 'farcaster':
       // Custom Farcaster F icon as SVG
       return (

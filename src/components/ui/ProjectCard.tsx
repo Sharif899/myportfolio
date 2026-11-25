@@ -1,150 +1,85 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, ArrowUpRight } from 'lucide-react'
+import { useInView } from 'react-intersection-observer'
+import { ExternalLink, Github } from 'lucide-react'
 import { cn } from '@/lib/utils'
-
-interface Project {
-  id: number
-  title: string
-  description: string
-  tags: string[]
-  category: string
-  status: string
-  year: string
-  gradient: string
-  accentColor: string
-  link: string
-  github: string
-  featured: boolean
-}
+import type { FeaturedProject } from '@/lib/data'
 
 interface ProjectCardProps {
-  project: Project
+  project: FeaturedProject
   index: number
   inView: boolean
-  featured?: boolean
 }
 
-export default function ProjectCard({ project, index, inView, featured }: ProjectCardProps) {
+export default function ProjectCard({ project, index, inView }: ProjectCardProps) {
   return (
-    <motion.div
-      className={cn(
-        'group glass-card rounded-sm overflow-hidden flex flex-col',
-        featured && 'md:col-span-1'
-      )}
+    <motion.article
+      className="group card rounded-md overflow-hidden flex flex-col border-t-2 border-t-accent-500/60"
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ y: -6 }}
+      transition={{ duration: 0.6, delay: index * 0.08 }}
     >
-      {/* Gradient header */}
-      <div
-        className={cn(
-          'relative h-44 bg-gradient-to-br overflow-hidden',
-          project.gradient
-        )}
-      >
-        {/* Glassmorphic overlay */}
-        <div className="absolute inset-0 bg-black/20" />
-
-        {/* Grid pattern */}
-        <div className="absolute inset-0 cyber-grid-bg opacity-30" />
-
-        {/* Center logo/icon */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="font-display text-5xl font-bold text-white/20 select-none tracking-tight">
-            {project.title.slice(0, 2).toUpperCase()}
-          </div>
-        </div>
-
-        {/* Status badge */}
-        <div className="absolute top-4 left-4">
-          <span
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm font-mono text-xs bg-black/40 backdrop-blur-sm border border-white/10 text-white/80"
-          >
+      <div className="p-6 md:p-7 flex flex-col flex-1">
+        <div className="flex items-center justify-between gap-3 mb-3">
+          <span className="font-mono text-xs tracking-widest uppercase text-accent-500">
+            {project.category}
+          </span>
+          <span className="flex items-center gap-1.5 text-xs text-dark-500">
             <span
-              className="w-1.5 h-1.5 rounded-full"
-              style={{
-                background: project.status === 'Live' ? '#39FF14' : '#FF6B00',
-                boxShadow: `0 0 6px ${project.status === 'Live' ? '#39FF14' : '#FF6B00'}`,
-              }}
+              className={cn(
+                'w-1.5 h-1.5 rounded-full',
+                project.status === 'Live' ? 'bg-accent-500' : 'bg-dark-400'
+              )}
             />
-            {project.status}
+            {project.status} · {project.year}
           </span>
         </div>
 
-        {/* Year */}
-        <div className="absolute top-4 right-4 font-mono text-xs text-white/40">
-          {project.year}
-        </div>
+        <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-accent-500 transition-colors duration-200">
+          {project.title}
+        </h3>
 
-        {/* Hover overlay with links */}
-        <div className="absolute inset-0 bg-black/60 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <motion.a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-sm border border-white/20 text-white text-sm font-mono transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ExternalLink size={14} />
-            Live
-          </motion.a>
-          <motion.a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-sm border border-white/20 text-white text-sm font-mono transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Github size={14} />
-            Code
-          </motion.a>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-6 flex flex-col flex-1">
-        <div className="flex items-start justify-between mb-2">
-          <div>
-            <span
-              className="font-mono text-xs tracking-widest uppercase mb-1 block"
-              style={{ color: project.accentColor + '80' }}
-            >
-              {project.category}
-            </span>
-            <h3 className="font-display text-xl font-bold text-white group-hover:text-cyber-500 transition-colors duration-200">
-              {project.title}
-            </h3>
-          </div>
-          <motion.a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-dark-500 group-hover:text-white transition-colors mt-1 shrink-0"
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            aria-label={`Visit ${project.title}`}
-          >
-            <ArrowUpRight size={18} />
-          </motion.a>
-        </div>
-
-        <p className="text-dark-400 text-sm leading-relaxed mb-5 flex-1">
+        <p className="text-dark-400 text-sm leading-relaxed mb-4 flex-1">
           {project.description}
         </p>
 
-        {/* Tags */}
-        <div className="flex flex-wrap gap-1.5">
+        <p className="text-xs text-dark-300 mb-5">
+          <span className="text-dark-500">Proof: </span>
+          {project.proof}
+        </p>
+
+        <div className="flex flex-wrap gap-1.5 mb-5">
           {project.tags.map((tag) => (
-            <span key={tag} className="tag-pill">
+            <span key={tag} className="tag">
               {tag}
             </span>
           ))}
         </div>
+
+        <div className="flex items-center gap-5 pt-4 border-t border-white/5">
+          <a
+            href={project.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm text-dark-200 hover:text-accent-500 transition-colors"
+          >
+            <Github size={15} />
+            Code
+          </a>
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-dark-200 hover:text-accent-500 transition-colors"
+            >
+              <ExternalLink size={15} />
+              Live site
+            </a>
+          )}
+        </div>
       </div>
-    </motion.div>
+    </motion.article>
   )
 }

@@ -1,27 +1,30 @@
 export const siteConfig = {
-  name: "Sharif",
-  title: "Sharif — Fullstack Vibecoder",
+  name: "Sherif Olabode",
+  title: "Sherif Olabode — Senior AI Evaluator & Trainer",
   description:
-    "Nigerian-born fullstack vibecoder building real-world Web3 products, AI execution layers, and tools that actually ship.",
-  url: "https://myportfolio.vercel.app",
-  ogImage: "/og.png",
-  author: "Sharif",
+    "Senior AI Evaluator & Trainer specialising in LLM evaluation, RLHF and QA. 12,000+ LLM responses evaluated at a 97% quality rating, 75,000+ test cases supported, and a software engineer building the systems behind the evaluation.",
+  url: "https://0xninofi.vercel.app",
+  author: "Sherif Olabode",
   keywords: [
-    "fullstack developer",
-    "web3",
-    "AI tools",
+    "LLM evaluation",
+    "RLHF",
+    "AI evaluation",
+    "annotation QA",
+    "red-teaming",
+    "software engineer",
+    "Python",
+    "Java",
+    "Spring Boot",
     "Next.js",
-    "React",
-    "vibecoder",
     "Nigerian developer",
-    "blockchain",
   ],
 };
 
 export const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -32,190 +35,291 @@ export const socialLinks = [
     icon: "github",
   },
   {
-    label: "Twitter",
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/sherif-olabode-128306415",
+    icon: "linkedin",
+  },
+  {
+    label: "X",
     href: "https://x.com/0xNinofi",
     icon: "twitter",
   },
   {
     label: "Email",
-    href: "mailto:sherifolabode@gmail.com",
+    href: "mailto:sharifninolee@gmail.com",
     icon: "mail",
+  },
+];
+
+export const stats = [
+  { label: "LLM responses evaluated", value: "12,000+" },
+  { label: "LLM test cases supported", value: "75,000+" },
+  { label: "Quality rating", value: "97%" },
+  { label: "Years in AI evaluation", value: "7" },
+];
+
+export const whatIDo = [
+  "LLM evaluation & RLHF",
+  "Annotation QA & calibration",
+  "Hallucination & safety testing",
+  "Backend systems (Java, Spring Boot, PostgreSQL)",
+  "Full-stack products (Next.js, TypeScript, Supabase)",
+];
+
+export const experience = [
+  {
+    role: "AI Trainer & Annotation QA Reviewer",
+    org: "iMerit",
+    location: "Remote, Freelance",
+    dates: "2019–Present",
+    bullets: [
+      "Evaluated 12,000+ LLM responses across 8+ projects at a 97% quality rating.",
+      "Audited 3,000+ contributor submissions.",
+      "Promoted from AI Annotator to QA Reviewer after one year.",
+    ],
+  },
+  {
+    role: "AI Evaluation Engineer",
+    org: "Databricks",
+    location: "Remote, Part-time",
+    dates: "Jul 2020–Present",
+    bullets: [
+      "Python evaluation pipelines for 20+ ML models.",
+      "Evaluation datasets and scoring frameworks supporting 75,000+ LLM test cases.",
+      "SQL, Apache Spark, MLflow.",
+    ],
+  },
+  {
+    role: "Senior Software Engineer",
+    org: "Seamfix Nigeria",
+    location: "Lagos",
+    dates: "2020–Present · promoted 2022",
+    bullets: [
+      "Identity verification, KYC and digital onboarding in Java, Spring Boot, Python and PostgreSQL.",
+      "Mentored 80+ interns.",
+    ],
+  },
+  {
+    role: "AI Training Expert",
+    org: "micro1 — Runway Annotations Project",
+    location: "Remote",
+    dates: "Project-based",
+    bullets: [
+      "Image and video annotation and computer-vision labelling.",
+      "AI data QA with CVAT, Labelbox, SuperAnnotate and Roboflow.",
+    ],
+  },
+];
+
+export const education = [
+  {
+    degree: "Ph.D., Data Science",
+    school: "Obafemi Awolowo University",
+    year: "2019",
+    detail: "Thesis on data quality and annotation consistency.",
+  },
+  {
+    degree: "M.Sc., Data Science and Artificial Intelligence",
+    school: "Ladoke Akintola University of Technology",
+    year: "2015",
+    detail: "",
+  },
+  {
+    degree: "B.Sc., Computer Science",
+    school: "Obafemi Awolowo University",
+    year: "2011",
+    detail: "",
+  },
+];
+
+export const certifications = [
+  {
+    name: "ISTQB Certified Tester – AI Testing (CT-AI v2.0)",
+    issuer: "ISTQB",
+    year: "Jan 2026",
+  },
+  {
+    name: "Google Cloud Professional Machine Learning Engineer",
+    issuer: "Google Cloud",
+    year: "Jul 2025",
+  },
+  {
+    name: "AWS Certified Machine Learning Engineer – Associate",
+    issuer: "Amazon Web Services",
+    year: "Feb 2025",
   },
 ];
 
 export const skills = [
   {
-    category: "Frontend",
-    color: "#00FFFF",
+    category: "AI evaluation & training data",
     items: [
-      { name: "Next.js", level: 95 },
-      { name: "React", level: 95 },
-      { name: "TypeScript", level: 88 },
-      { name: "Tailwind CSS", level: 92 },
-      { name: "Framer Motion", level: 82 },
+      "LLM evaluation",
+      "RLHF",
+      "Rubric design",
+      "Annotation QA",
+      "Cohen's kappa",
+      "Hallucination detection",
+      "Red-teaming",
+      "Calibration",
     ],
+  },
+  {
+    category: "Languages",
+    items: ["Python", "Java", "TypeScript", "SQL", "Solidity"],
+  },
+  {
+    category: "Data & ML",
+    items: ["pandas", "NumPy", "scikit-learn", "Apache Spark", "MLflow"],
   },
   {
     category: "Backend",
-    color: "#9B30FF",
-    items: [
-      { name: "Node.js", level: 85 },
-      { name: "Supabase", level: 88 },
-      { name: "PostgreSQL", level: 80 },
-      { name: "REST APIs", level: 90 },
-      { name: "Prisma", level: 78 },
-    ],
+    items: ["Spring Boot", "PostgreSQL", "Supabase", "Docker"],
   },
   {
-    category: "Web3",
-    color: "#FF2D78",
-    items: [
-      { name: "Solidity", level: 80 },
-      { name: "Ethers.js", level: 85 },
-      { name: "wagmi", level: 88 },
-      { name: "Arc SDK", level: 85 },
-      { name: "IPFS", level: 72 },
-    ],
-  },
-  {
-    category: "AI & Tools",
-    color: "#39FF14",
-    items: [
-      { name: "OpenAI API", level: 88 },
-      { name: "Vercel AI SDK", level: 85 },
-      { name: "Git", level: 92 },
-      { name: "Docker", level: 75 },
-      { name: "Vercel", level: 95 },
-    ],
+    category: "Web",
+    items: ["Next.js", "React", "Tailwind CSS", "Node.js"],
   },
 ];
 
-export const projects = [
+export interface FeaturedProject {
+  id: number;
+  title: string;
+  description: string;
+  tags: string[];
+  category: string;
+  status: string;
+  year: string;
+  repo: string;
+  live?: string;
+  proof: string;
+}
+
+export const featuredProjects: FeaturedProject[] = [
   {
     id: 1,
-    title: "AssetDot",
+    title: "OsogboRent",
     description:
-      "RWA tokenization platform on Portaldot. Tokenize Lagos real estate & African farmland — trade and bridge across chains with ZKP privacy.",
-    tags: ["Next.js", "ink!", "ZKP", "Polkadot", "Web3"],
-    category: "Web3",
+      "Houses & shops for rent and sale in Osogbo, Nigeria. Search by area, property type and price, featured and recent listings, request board, agent dashboard.",
+    tags: ["Next.js 14", "TypeScript", "Tailwind", "Supabase"],
+    category: "Web app",
     status: "Live",
     year: "2026",
-    gradient: "from-cyan-500 via-blue-600 to-purple-700",
-    accentColor: "#00FFFF",
-    link: "https://assetdot.vercel.app",
-    github: "https://github.com/Sharif899",
-    featured: true,
+    repo: "https://github.com/Sharif899/houseplug",
+    live: "https://osogborent.com",
+    proof: "Live site · tests + CI green",
   },
   {
     id: 2,
-    title: "Arc Terminal",
+    title: "llm-eval-toolkit",
     description:
-      "Full-featured DeFi trading terminal. Send USDC, swap EURC, bridge chains, manage payroll and storefronts — all in one place on Arc Testnet.",
-    tags: ["Next.js", "Arc SDK", "USDC", "DeFi"],
-    category: "Web3",
-    status: "Live",
+      "Offline, deterministic, rubric-based LLM evaluation: 1–5 scoring, pairwise RLHF comparison, hallucination checks, annotation QA with Cohen's kappa.",
+    tags: ["Python", "Standard library", "pytest", "CLI"],
+    category: "AI evaluation",
+    status: "Open source",
     year: "2026",
-    gradient: "from-violet-600 via-purple-700 to-pink-700",
-    accentColor: "#9B30FF",
-    link: "https://arcterminal.vercel.app",
-    github: "https://github.com/Sharif899",
-    featured: true,
+    repo: "https://github.com/Sharif899/llm-eval-toolkit",
+    proof: "42 tests passing",
   },
   {
     id: 3,
-    title: "ORO",
+    title: "kyc-onboarding-service",
     description:
-      "AI-powered execution layer for capital. Set your strategy once — ORO monitors, adapts, and executes 24/7 with 99.6% accuracy and zero emotion.",
-    tags: ["Next.js", "AI", "DeFi", "zkTLS", "TEEs"],
-    category: "AI + Web3",
-    status: "Live",
+      "Identity verification & KYC onboarding in Java and Spring Boot: document validation, duplicate detection, idempotent requests, verification workflow with audit log, Postgres profile.",
+    tags: ["Java 21", "Spring Boot 3", "JPA", "H2 / PostgreSQL", "JUnit 5"],
+    category: "Backend",
+    status: "Open source",
     year: "2026",
-    gradient: "from-amber-500 via-orange-600 to-red-600",
-    accentColor: "#FF6B00",
-    link: "https://orobest.vercel.app",
-    github: "https://github.com/Sharif899",
-    featured: true,
+    repo: "https://github.com/Sharif899/kyc-onboarding-service",
+    proof: "54 tests passing · CI green",
   },
   {
     id: 4,
-    title: "ShelbyChat",
+    title: "ai-safety-red-teaming",
     description:
-      "Decentralized, permanent, uncensorable chat built on Shelby Protocol. Every message is a permanent blob on-chain — no deletion, no censorship, ever.",
-    tags: ["Next.js", "Shelby Protocol", "Web3", "Decentralized"],
-    category: "Web3",
-    status: "Live",
+      "Offline, deterministic red-teaming for LLMs: 10 attack techniques, refusal classification, unsafe-output detection, attack success rate and consistency scoring.",
+    tags: ["Python", "Standard library", "pytest", "CLI"],
+    category: "AI safety",
+    status: "Open source",
     year: "2026",
-    gradient: "from-emerald-500 via-teal-600 to-cyan-700",
-    accentColor: "#39FF14",
-    link: "https://shelbychatt.vercel.app",
-    github: "https://github.com/Sharif899",
-    featured: false,
+    repo: "https://github.com/Sharif899/ai-safety-red-teaming",
+    proof: "82 tests passing · example run: 50% attack success rate, 0% consistency",
   },
   {
     id: 5,
-    title: "ChainPulse",
+    title: "Archy",
     description:
-      "AI-powered DeFi analytics dashboard powered by OpenGradient. Live market scores, whale alerts, wallet reputation analysis — all verified on-chain.",
-    tags: ["Next.js", "OpenGradient", "AI", "DeFi", "TEE"],
-    category: "AI + Web3",
+      "Agent-to-agent job marketplace on Arc Network. Agents post jobs, lock USDC in escrow, bid, and get paid on approval, with on-chain reputation.",
+    tags: ["Next.js 14", "TypeScript", "Supabase", "Arc", "USDC", "Circle App Kit"],
+    category: "Web3",
     status: "Live",
     year: "2026",
-    gradient: "from-blue-600 via-indigo-700 to-violet-700",
-    accentColor: "#6366F1",
-    link: "https://chainpuls.vercel.app",
-    github: "https://github.com/Sharif899",
-    featured: false,
+    repo: "https://github.com/Sharif899/archy",
+    live: "https://archy.vercel.app",
+    proof: "Live demo",
   },
   {
     id: 6,
-    title: "CertVault",
+    title: "Arc Terminal",
     description:
-      "Issue tamper-proof certificates stored permanently on Shelby Protocol. Anyone can verify authenticity instantly with just a link — certificates that cannot be faked.",
-    tags: ["Next.js", "Shelby Protocol", "Web3", "Credentials"],
+      "DeFi terminal for Arc Network: send USDC, swap EURC, bridge chains, portfolio and markets.",
+    tags: ["Next.js 14", "TypeScript", "Supabase", "Circle App Kit"],
     category: "Web3",
     status: "Live",
     year: "2026",
-    gradient: "from-pink-600 via-rose-700 to-orange-600",
-    accentColor: "#FF2D78",
-    link: "https://certvaultt.vercel.app",
-    github: "https://github.com/Sharif899",
-    featured: false,
-  },
-  {
-    id: 7,
-    title: "ArcBounty",
-    description:
-      "Onchain developer bounty board. Post tasks, claim work, get paid in real USDC via Arc SDK with sub-second settlement. No middleman.",
-    tags: ["Next.js", "Arc SDK", "Supabase", "USDC"],
-    category: "Web3",
-    status: "Live",
-    year: "2026",
-    gradient: "from-yellow-500 via-orange-600 to-red-600",
-    accentColor: "#FF6B00",
-    link: "https://arcbounty.vercel.app",
-    github: "https://github.com/Sharif899",
-    featured: false,
-  },
-  {
-    id: 8,
-    title: "OsogboRent",
-    description:
-      "Osogbo's most trusted property platform. Verified listings of houses, shops and apartments for rent or sale across Osun State, Nigeria.",
-    tags: ["Next.js", "Supabase", "Real Estate", "Nigeria"],
-    category: "Web App",
-    status: "Live",
-    year: "2026",
-    gradient: "from-green-500 via-emerald-600 to-teal-700",
-    accentColor: "#10B981",
-    link: "https://osogborent.com",
-    github: "https://github.com/Sharif899",
-    featured: false,
+    repo: "https://github.com/Sharif899/arcterminal",
+    live: "https://arcterminal.vercel.app",
+    proof: "Live demo",
   },
 ];
 
-export const stats = [
-  { label: "Projects Shipped", value: "8+" },
-  { label: "Chains Deployed", value: "4+" },
-  { label: "Years Building", value: "3+" },
-  { label: "Based In", value: "🇳🇬" },
+export interface MoreProject {
+  title: string;
+  description: string;
+  tags: string[];
+  repo: string;
+  live: string;
+}
+
+export const moreProjects: MoreProject[] = [
+  {
+    title: "ChainPulse",
+    description:
+      "AI-powered DeFi analytics: market scores, whale alerts, wallet reputation, verified on-chain.",
+    tags: ["Next.js", "OpenGradient", "AI", "DeFi"],
+    repo: "https://github.com/Sharif899/chainpulse",
+    live: "https://chainpuls.vercel.app",
+  },
+  {
+    title: "CertVault",
+    description:
+      "Tamper-proof certificates on Shelby + Aptos. Issue, store and verify credentials from a URL.",
+    tags: ["Next.js", "Shelby Protocol", "Web3", "Credentials"],
+    repo: "https://github.com/Sharif899/certvault",
+    live: "https://certvault-gamma.vercel.app",
+  },
+  {
+    title: "ArcBounty",
+    description:
+      "On-chain developer bounty board. Post tasks, claim work, get paid in USDC via Arc.",
+    tags: ["Next.js", "Arc SDK", "Supabase", "USDC"],
+    repo: "https://github.com/Sharif899/arcbounty",
+    live: "https://arcbounty.vercel.app",
+  },
+  {
+    title: "ORO",
+    description:
+      "AI execution layer for capital: set a strategy, ORO monitors and executes.",
+    tags: ["Next.js", "AI", "DeFi", "zkTLS", "TEEs"],
+    repo: "https://github.com/Sharif899/oro",
+    live: "https://orobest.vercel.app",
+  },
+  {
+    title: "ShelbyChat",
+    description:
+      "Decentralised chat on Shelby Protocol: messages stored permanently on-chain.",
+    tags: ["Next.js", "Shelby Protocol", "Web3", "Decentralised"],
+    repo: "https://github.com/Sharif899/shelbychat",
+    live: "https://shelbychatt.vercel.app",
+  },
 ];

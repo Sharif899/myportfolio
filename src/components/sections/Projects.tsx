@@ -1,117 +1,94 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { useState } from 'react'
-import { projects } from '@/lib/data'
+import { ExternalLink, Github } from 'lucide-react'
+import { featuredProjects, moreProjects } from '@/lib/data'
 import ProjectCard from '@/components/ui/ProjectCard'
-import { cn } from '@/lib/utils'
-
-const FILTERS = ['All', 'Web3 + AI', 'AI Tools', 'Web3', 'Dev Tools', 'Mobile App']
 
 export default function Projects() {
   const { ref, inView } = useInView({ threshold: 0.05, triggerOnce: true })
-  const [filter, setFilter] = useState('All')
-  const [showAll, setShowAll] = useState(false)
-
-  const filtered =
-    filter === 'All' ? projects : projects.filter((p) => p.category === filter)
-
-  const displayed = showAll ? filtered : filtered.slice(0, 6)
 
   return (
-    <section id="projects" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_20%_60%,rgba(255,45,120,0.04)_0%,transparent_60%)]" />
-
-      <div className="max-w-7xl mx-auto px-6" ref={ref}>
-        {/* Header */}
+    <section id="projects" className="relative py-24 md:py-32 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6" ref={ref}>
         <motion.div
-          className="mb-14"
+          className="mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex items-center gap-4 mb-4">
-            <span className="font-mono text-sm text-cyber-500/60 tracking-widest">03.</span>
-            <div className="h-px flex-1 max-w-[60px] bg-cyber-500/30" />
-          </div>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-              <h2 className="section-title text-white">
-                Selected <span className="cyber-text">Work</span>
-              </h2>
-              <p className="mt-4 text-dark-400 max-w-lg">
-                Products I&apos;ve built, shipped, and launched. Each one is a reflection of a
-                specific obsession at a specific moment in time.
-              </p>
-            </div>
-            <div className="font-mono text-5xl font-bold text-dark-800 select-none">
-              {String(projects.length).padStart(2, '0')}
-            </div>
-          </div>
+          <p className="eyebrow mb-4">Selected work</p>
+          <h2 className="section-title">Featured projects</h2>
+          <p className="mt-4 text-dark-400 max-w-2xl">
+            The work I&apos;m proudest of: AI evaluation tooling I built from my
+            day job&apos;s expertise, a live product serving real users, and the
+            Web3 products that got me here.
+          </p>
         </motion.div>
 
-        {/* Filter tabs */}
-        <motion.div
-          className="flex flex-wrap gap-2 mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2 }}
-        >
-          {FILTERS.map((f) => (
-            <button
-              key={f}
-              onClick={() => { setFilter(f); setShowAll(false) }}
-              className={cn(
-                'px-4 py-1.5 font-mono text-xs tracking-wider rounded-sm border transition-all duration-200',
-                filter === f
-                  ? 'border-cyber-500/60 text-cyber-500 bg-cyber-500/10'
-                  : 'border-dark-700 text-dark-400 hover:border-dark-500 hover:text-dark-200'
-              )}
-            >
-              {f}
-            </button>
+        <div className="grid md:grid-cols-2 gap-6 mb-20">
+          {featuredProjects.map((project, i) => (
+            <ProjectCard key={project.id} project={project} index={i} inView={inView} />
           ))}
-        </motion.div>
+        </div>
 
-        {/* Projects grid */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={filter}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {displayed.map((project, i) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                index={i}
-                inView={inView}
-                featured={project.featured}
-              />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <h3 className="font-display text-2xl font-bold text-white mb-2">More projects</h3>
+          <p className="text-dark-400 mb-8 max-w-2xl">
+            Other products I&apos;ve shipped — each with its code and a live link.
+          </p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {moreProjects.map((project, i) => (
+              <motion.article
+                key={project.title}
+                className="card rounded-md p-6 flex flex-col"
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.25 + i * 0.06 }}
+              >
+                <h4 className="font-display text-lg font-bold text-white mb-2">
+                  {project.title}
+                </h4>
+                <p className="text-dark-400 text-sm leading-relaxed mb-4 flex-1">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex items-center gap-5 pt-4 border-t border-white/5">
+                  <a
+                    href={project.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm text-dark-200 hover:text-accent-500 transition-colors"
+                  >
+                    <Github size={15} />
+                    Code
+                  </a>
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm text-dark-200 hover:text-accent-500 transition-colors"
+                  >
+                    <ExternalLink size={15} />
+                    Live site
+                  </a>
+                </div>
+              </motion.article>
             ))}
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Show more */}
-        {filtered.length > 6 && (
-          <motion.div
-            className="mt-10 text-center"
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.5 }}
-          >
-            <button
-              onClick={() => setShowAll(!showAll)}
-              className="cyber-btn px-8 py-3"
-            >
-              {showAll ? 'Show Less' : `Show All (${filtered.length})`}
-            </button>
-          </motion.div>
-        )}
+          </div>
+        </motion.div>
       </div>
     </section>
   )
