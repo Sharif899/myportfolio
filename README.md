@@ -1,39 +1,49 @@
-# Sherif Olabode — Senior Portfolio
+# Sherif Olabode — Senior Portfolio (v2)
 
 A personal portfolio for Sherif Olabode, Senior AI Evaluator & Trainer
 (LLM evaluation, RLHF & QA) and Software Engineer, Ph.D. Data Science.
-Built with Next.js 15, TypeScript, Tailwind CSS and Framer Motion.
 
-Live at [0xninofi.vercel.app](https://0xninofi.vercel.app).
+## Design
 
-## Sections
+v2 is a full rethink, not a polish of v1. Light, editorial, typography-led:
+warm paper background, ink text, one restrained pine accent, Fraunces
+serif display type with Inter body text (loaded via `next/font`, self-hosted
+at build — no runtime font dependency). No dark mode, no loading screens,
+no typewriters, no gradients, no glassmorphism. Restrained scroll reveals
+only, respecting `prefers-reduced-motion`.
 
-- **Hero** — name, title, key numbers (12,000+ LLM responses evaluated,
-  75,000+ test cases, 97% quality rating), CV download
-- **About** — background and what I do
-- **Experience** — iMerit, Databricks, Seamfix, micro1
-- **Projects** — six featured projects (OsogboRent, llm-eval-toolkit,
-  kyc-onboarding-service, ai-safety-red-teaming, Archy, Arc Terminal) plus
-  five more, each with a link to the real repository and live site
-- **Skills** — grouped by domain, no self-scored percentages
-- **Education & Certifications** — degrees and certifications
-- **Contact** — email and social links (no contact form by design)
+The page is structured as a visitor's questions, in order:
 
-## Quick start
+1. **Hero** — positioning: "I decide whether AI systems are good enough to ship",
+   with a proof strip of linked evidence instead of a stats wall.
+2. **Selected Work** — four case studies with depth (problem → approach →
+   outcome → evidence): llm-eval-toolkit, kyc-onboarding-service,
+   ai-safety-red-teaming, annotation-qa-toolkit; plus a compact "More work"
+   list (ml-evaluation-toolkit, OsogboRent, ChainPulse, CertVault, ArcBounty,
+   ORO, ShelbyChat).
+3. **How I Evaluate** — five principles, each grounded in the actual work.
+4. **What I can be hired for** — four engagement types, each with a proof line.
+5. **Experience** — timeline with outcomes, not duties.
+6. **Expertise** — grouped capabilities, no percentages.
+7. **Education & Credentials** — PhD / MSc / BSc and three certifications.
+8. **Writing** — the repos' READMEs are the writing; no invented blog posts.
+9. **Contact** — real email and links, availability, no form.
+
+Every number on the page comes from the CV or the public repositories.
+No fake testimonials, clients, quotes or images.
+
+## Stack
+
+Next.js 15, React 18, TypeScript, Tailwind CSS. No animation library — a
+small `Reveal` component (IntersectionObserver + CSS) handles scroll reveals.
+Fonts via `next/font/google` (Fraunces + Inter).
+
+## Run
 
 ```bash
 npm install
-npm run dev
+npm run build
+npm start
 ```
 
-## Updating content
-
-All copy lives in `src/lib/data.ts` — projects, experience, education,
-skills and stats. The CV is `public/sherif-olabode-cv.pdf`; replace that
-file to update the download. The full CV is also on GitHub at
-[github.com/Sharif899/cv](https://github.com/Sharif899/cv).
-
-## Deployment
-
-Deployed on Vercel. Pushes to `main` redeploy
-[0xninofi.vercel.app](https://0xninofi.vercel.app) automatically.
+The CV is served from `public/sherif-olabode-cv.pdf`.

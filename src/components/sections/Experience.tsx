@@ -1,56 +1,61 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import Reveal from '@/components/ui/Reveal'
 import { experience } from '@/lib/data'
 
 export default function Experience() {
-  const { ref, inView } = useInView({ threshold: 0.05, triggerOnce: true })
-
   return (
-    <section id="experience" className="relative py-24 md:py-32 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6" ref={ref}>
-        <motion.div
-          className="mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="eyebrow mb-4">Experience</p>
-          <h2 className="section-title">Where I&apos;ve worked</h2>
-        </motion.div>
+    <section
+      id="experience"
+      aria-labelledby="experience-heading"
+      className="border-b border-hairline"
+    >
+      <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+        <Reveal>
+          <div className="mb-10 md:mb-14">
+            <p className="flex items-baseline gap-3">
+              <span className="section-number">04</span>
+              <span className="kicker">Experience</span>
+            </p>
+            <h2 id="experience-heading" className="section-title mt-3 max-w-2xl">
+              Seven years, four rooms
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
+              What each role changed, not what it involved. Duties are on the CV;
+              outcomes are here.
+            </p>
+          </div>
+        </Reveal>
 
-        <div className="space-y-6">
+        <ol className="relative space-y-12 border-l border-hairline pl-8 md:space-y-14 md:pl-12">
           {experience.map((job, i) => (
-            <motion.article
-              key={job.org}
-              className="card rounded-md p-7 md:p-8"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-            >
-              <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-1">
-                <h3 className="font-display text-xl md:text-2xl font-bold text-white">
-                  {job.role}
-                </h3>
-                <span className="font-mono text-xs text-accent-500 shrink-0">
-                  {job.dates}
-                </span>
-              </div>
-              <p className="text-dark-300 text-sm md:text-base mb-4">
-                {job.org} · {job.location}
-              </p>
-              <ul className="space-y-2">
-                {job.bullets.map((bullet) => (
-                  <li key={bullet} className="flex items-start gap-3 text-dark-400 text-sm md:text-base leading-relaxed">
-                    <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent-500" />
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
-            </motion.article>
+            <li key={job.org} className="relative">
+              <Reveal delay={i * 40}>
+                <span
+                  className="absolute -left-8 top-2 h-3 w-3 -translate-x-[7px] rounded-full border-2 border-pine bg-paper md:-left-12"
+                  aria-hidden="true"
+                />
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                  <h3 className="font-display text-xl font-medium leading-snug text-ink md:text-2xl">
+                    {job.role}
+                  </h3>
+                  <p className="shrink-0 text-sm font-medium text-ink-muted">
+                    {job.dates}
+                  </p>
+                </div>
+                <p className="mt-1 text-base font-semibold text-pine">
+                  {job.org} <span className="font-normal text-ink-muted">· {job.meta}</span>
+                </p>
+                <ul className="mt-4 space-y-2">
+                  {job.outcomes.map((outcome) => (
+                    <li key={outcome} className="flex items-start gap-3 text-base leading-relaxed text-ink-soft">
+                      <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-pine" aria-hidden="true" />
+                      {outcome}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   )

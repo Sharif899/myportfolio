@@ -1,24 +1,28 @@
 import Navbar from '@/components/layout/Navbar'
 import Hero from '@/components/sections/Hero'
-import About from '@/components/sections/About'
+import CaseStudies from '@/components/sections/CaseStudies'
+import Method from '@/components/sections/Method'
+import Engagements from '@/components/sections/Engagements'
 import Experience from '@/components/sections/Experience'
-import Projects from '@/components/sections/Projects'
-import Skills from '@/components/sections/Skills'
-import Education from '@/components/sections/Education'
+import Expertise from '@/components/sections/Expertise'
+import Credentials from '@/components/sections/Credentials'
+import Writing from '@/components/sections/Writing'
 import Contact from '@/components/sections/Contact'
 import Footer from '@/components/layout/Footer'
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-dark-950 text-dark-100">
+    <div className="min-h-screen bg-paper text-ink">
       <Navbar />
-      <main>
+      <main id="main">
         <Hero />
-        <About />
+        <CaseStudies />
+        <Method />
+        <Engagements />
         <Experience />
-        <Projects />
-        <Skills />
-        <Education />
+        <Expertise />
+        <Credentials />
+        <Writing />
         <Contact />
       </main>
       <Footer />

@@ -1,45 +1,52 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import { socialLinks } from '@/lib/data'
+import { navLinks, siteConfig, socialLinks } from '@/lib/data'
 import SocialIcon from '@/components/ui/SocialIcon'
 
 export default function Footer() {
-  const year = new Date().getFullYear()
-
   return (
-    <footer className="relative border-t border-white/5 py-12">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
-            <div className="font-display text-xl font-bold text-white mb-1">
+    <footer className="border-t border-hairline bg-surface">
+      <div className="mx-auto max-w-6xl px-5 py-12 md:px-8">
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+          <div>
+            <p className="font-display text-xl font-semibold text-ink">
               Sherif Olabode
-            </div>
-            <div className="text-sm text-dark-500">
-              Senior AI Evaluator &amp; Trainer
-            </div>
+            </p>
+            <p className="mt-1 text-sm text-ink-muted">
+              Senior AI Evaluator &amp; Trainer — {siteConfig.location}
+            </p>
+            <p className="mt-4 flex flex-wrap gap-4">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-ink-soft no-underline hover:text-pine"
+                  aria-label={link.label}
+                >
+                  <SocialIcon icon={link.icon} size={16} />
+                  {link.label}
+                </a>
+              ))}
+            </p>
           </div>
 
-          <div className="flex items-center gap-5">
-            {socialLinks.map((link) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-dark-500 hover:text-accent-500 transition-colors"
-                aria-label={link.label}
-                whileHover={{ scale: 1.15, y: -2 }}
-              >
-                <SocialIcon icon={link.icon} size={18} />
-              </motion.a>
-            ))}
-          </div>
+          <nav aria-label="Footer">
+            <ul className="grid grid-cols-2 gap-x-10 gap-y-2">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-ink-muted no-underline hover:text-pine"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
 
-          <div className="text-sm text-dark-500 text-center md:text-right">
-            <div>Built with Next.js</div>
-            <div className="mt-1">© {year} Sherif Olabode. All rights reserved.</div>
-          </div>
+        <div className="mt-10 flex flex-col gap-2 border-t border-hairline pt-6 text-sm text-ink-faint sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 Sherif Olabode. All rights reserved.</p>
+          <p>Built with Next.js. No tracking, no cookies, no form that goes nowhere.</p>
         </div>
       </div>
     </footer>

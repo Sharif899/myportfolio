@@ -1,75 +1,61 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import { Mail } from 'lucide-react'
-import { socialLinks } from '@/lib/data'
+import { FileDown, Mail } from 'lucide-react'
+import Reveal from '@/components/ui/Reveal'
 import SocialIcon from '@/components/ui/SocialIcon'
+import { siteConfig, socialLinks } from '@/lib/data'
 
 export default function Contact() {
-  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
-
   return (
-    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6" ref={ref}>
-        <motion.div
-          className="mb-12 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="eyebrow mb-4">Contact</p>
-          <h2 className="section-title mb-5">Let&apos;s talk</h2>
-          <p className="text-dark-400 max-w-xl mx-auto leading-relaxed">
-            I&apos;m open to freelance projects, startup collaborations and remote
-            opportunities — especially AI evaluation, RLHF and safety work.
-          </p>
-        </motion.div>
+    <section id="contact" aria-labelledby="contact-heading">
+      <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+        <Reveal>
+          <div className="max-w-2xl">
+            <p className="flex items-baseline gap-3">
+              <span className="section-number">08</span>
+              <span className="kicker">Contact</span>
+            </p>
+            <h2
+              id="contact-heading"
+              className="mt-3 font-display text-3xl font-medium leading-tight text-ink md:text-5xl"
+            >
+              If you need a verdict you can defend, write to me.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-ink-soft md:text-lg">
+              I am available for remote evaluation and engineering work — LLM
+              evaluation and benchmarking, annotation QA, KYC and onboarding
+              systems, and full-stack product builds. Tell me what you need
+              measured or built, and I will give you a straight answer about
+              whether I am the right person for it.
+            </p>
 
-        <motion.div
-          className="max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.15 }}
-        >
-          <a
-            href="mailto:sharifninolee@gmail.com"
-            className="card rounded-md p-7 md:p-8 flex items-center gap-5 mb-6 group"
-          >
-            <span className="flex items-center justify-center w-12 h-12 rounded-md bg-accent-500/10 border border-accent-500/25 shrink-0">
-              <Mail size={20} className="text-accent-500" />
-            </span>
-            <span>
-              <span className="block font-mono text-xs text-dark-500 tracking-widest uppercase mb-1">
-                Email
-              </span>
-              <span className="block font-display text-lg md:text-2xl font-bold text-white group-hover:text-accent-500 transition-colors">
-                sharifninolee@gmail.com
-              </span>
-            </span>
-          </a>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a href={`mailto:${siteConfig.email}`} className="btn-primary">
+                <Mail size={16} aria-hidden="true" />
+                {siteConfig.email}
+              </a>
+              <a href="/sherif-olabode-cv.pdf" className="btn-secondary">
+                <FileDown size={16} aria-hidden="true" />
+                Download CV
+              </a>
+            </div>
 
-          <div className="grid sm:grid-cols-3 gap-4">
-            {socialLinks
-              .filter((link) => link.label !== 'Email')
-              .map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="card rounded-md p-5 flex items-center gap-3 text-dark-300 hover:text-white transition-colors"
-                >
-                  <SocialIcon icon={link.icon} size={18} className="text-accent-500" />
-                  <span className="font-body text-sm font-medium">{link.label}</span>
-                </a>
-              ))}
+            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t border-hairline pt-6">
+              {socialLinks
+                .filter((link) => link.label !== 'Email')
+                .map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="inline-flex items-center gap-2 text-sm font-medium text-ink-soft no-underline hover:text-pine"
+                    >
+                      <SocialIcon icon={link.icon} size={16} />
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              <li className="text-sm text-ink-muted">Lagos, Nigeria · working remotely</li>
+            </ul>
           </div>
-
-          <p className="text-center text-dark-500 text-sm mt-8">
-            Open to freelance &amp; remote opportunities.
-          </p>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   )
