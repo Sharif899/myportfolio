@@ -1,6 +1,6 @@
-import { GraduationCap, Award } from 'lucide-react'
+import { ArrowUpRight, Award, GraduationCap } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
-import { certifications, education } from '@/lib/data'
+import { certifications, education, siteConfig } from '@/lib/data'
 
 export default function Credentials() {
   return (
@@ -51,6 +51,17 @@ export default function Credentials() {
                   </li>
                 ))}
               </ol>
+              <p className="mt-8">
+                <a
+                  href={siteConfig.scholarProfile}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-ink-soft no-underline hover:text-pine"
+                >
+                  Google Scholar profile
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              </p>
             </div>
           </Reveal>
 

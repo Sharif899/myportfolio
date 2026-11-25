@@ -5,6 +5,7 @@ export const siteConfig = {
   description:
     'I decide whether AI systems are good enough to ship. Seven years evaluating large language models, a PhD in data science, and open-source evaluation tooling that makes those judgements reproducible.',
   url: 'https://0xninofi.vercel.app',
+  scholarProfile: 'https://scholar.google.com/citations?user=9wQ8BHMAAAAJ&hl=en',
   author: 'Sherif Olabode',
   location: 'Lagos, Nigeria · working remotely',
   email: 'sharifninolee@gmail.com',
