@@ -20,7 +20,7 @@ export default function Engagements() {
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
               If your problem is one of these, the evidence for it is already
-              on this page. If it is none of these, write anyway — the worst
+              on this page. If it is none of these, write anyway. The worst
               you will get is a straight no.
             </p>
           </div>

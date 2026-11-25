@@ -19,8 +19,8 @@ export default function Beliefs() {
               Four convictions, each with a receipt
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
-              These are not principles. They are positions I will argue about —
-              each one paid for with a mistake I made or a number I did not
+              These are not principles. They are positions I will argue about.
+              Each one was paid for with a mistake I made or a number I did not
               like. Every one of them shows up in the tools above, so you do
               not have to take my word for it.
             </p>

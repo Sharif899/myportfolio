@@ -21,8 +21,8 @@ export default function Credentials() {
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
               The degrees are not decoration. My PhD thesis was about data
-              quality and annotation consistency — the research the tools on
-              this page apply, written as software.
+              quality and annotation consistency. The tools on this page are
+              that research, written as software.
             </p>
           </div>
         </Reveal>

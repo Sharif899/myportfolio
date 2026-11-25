@@ -15,7 +15,7 @@ export default function Stories() {
               Two things the work taught me
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
-              Not achievements — decisions. Each one is checkable against the
+              Not achievements. Decisions. Each one is checkable against the
               CV or the repositories, and each one changed how I build.
             </p>
           </div>
@@ -41,7 +41,7 @@ export default function Stories() {
                   ))}
                 </div>
                 <p className="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-ink-faint">
-                  Source — {story.source}
+                  Source: {story.source}
                 </p>
               </article>
             </Reveal>

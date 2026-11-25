@@ -35,7 +35,7 @@ export default function Hero() {
             {' · '}
             <a className="text-link" href="#experience">12,000+ responses scored at 97% quality</a>
             {' · '}
-            <a className="text-link" href="#work">5 open-source evaluation tools</a>
+            <a className="text-link" href="#work">6 open-source evaluation tools</a>
           </p>
         </Reveal>
 
@@ -46,7 +46,7 @@ export default function Hero() {
               <ArrowDown size={16} aria-hidden="true" />
             </a>
             <p className="mt-6 max-w-2xl border-l-2 border-pine pl-4 text-base leading-relaxed text-ink-muted">
-              Currently building a Spark + MLflow evaluation pipeline — and
+              I shipped the Spark + MLflow evaluation pipeline, and I am
               taking on remote evaluation and engineering work. Write to me:{' '}
               <a className="text-link" href={`mailto:${siteConfig.email}`}>
                 {siteConfig.email}

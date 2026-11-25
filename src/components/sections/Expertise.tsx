@@ -20,7 +20,7 @@ export default function Expertise() {
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
               Tools are choices, not a list. Each one below is there because
-              it earned its place — the sentence next to it says how.
+              it earned its place. The sentence next to it says how.
             </p>
           </div>
         </Reveal>

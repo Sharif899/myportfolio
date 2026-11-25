@@ -13,7 +13,7 @@ interface RevealProps {
 /**
  * Restrained scroll reveal: a small fade and rise, applied once.
  * Respects prefers-reduced-motion via CSS (the .reveal class).
- * No animation library — IntersectionObserver + a class toggle.
+ * No animation library. IntersectionObserver plus a class toggle.
  */
 export default function Reveal({ children, className, delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null)

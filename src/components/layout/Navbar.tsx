@@ -27,7 +27,7 @@ export default function Navbar() {
         <a
           href="#top"
           className="font-display text-lg font-semibold leading-none text-ink no-underline"
-          aria-label="Sherif Olabode — back to top"
+          aria-label="Sherif Olabode, back to top"
         >
           Sherif Olabode
           <span className="mt-1 block font-body text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted">

@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'Sherif Olabode',
   role: 'Senior AI Evaluator & Trainer',
-  title: 'Sherif Olabode — Senior AI Evaluator & Trainer',
+  title: 'Sherif Olabode | Senior AI Evaluator & Trainer',
   description:
     'I decide whether AI systems are good enough to ship. Seven years evaluating large language models, a PhD in data science, and open-source evaluation tooling that makes those judgements reproducible.',
   url: 'https://0xninofi.vercel.app',
@@ -85,7 +85,7 @@ export const caseStudies: CaseStudy[] = [
     problem:
       'An onboarding system has to do three things at once: reject invalid identity documents, catch the same person applying twice, and survive a retried request without creating a second application. Getting any one wrong costs trust.',
     approach:
-      'Java 21 and Spring Boot. Document-number rules per type (NIN, passport, driving licence), duplicate detection that answers 409 with the existing application, idempotency keys on creation, and a state machine — pending, under review, verified, rejected — with an audit log entry for every transition. A Postgres profile targets a separate Supabase project; document numbers are masked to the last four digits in every response and log line.',
+      'Java 21 and Spring Boot. Document-number rules per type (NIN, passport, driving licence), duplicate detection that answers 409 with the existing application, idempotency keys on creation, and a state machine (pending, under review, verified, rejected) with an audit log entry for every transition. A Postgres profile targets a separate Supabase project; document numbers are masked to the last four digits in every response and log line.',
     outcome:
       '54 tests passing, CI green. The design reflects the production outcomes from Seamfix: duplicate records down 75% and API response time down 39% on systems handling 20,000+ requests a day.',
     evidence: ['54 tests passing', 'CI green', 'PostgreSQL / Supabase profile'],
@@ -99,11 +99,11 @@ export const caseStudies: CaseStudy[] = [
     title: 'ai-safety-red-teaming',
     oneLiner: 'Adversarial testing that shows you the number you would rather not see.',
     problem:
-      'A model that passes a benchmark can still be talked into harmful compliance. Roleplay, authority framing, multi-step escalation and encoding tricks are how that happens — and a single safety score hides it.',
+      'A model that passes a benchmark can still be talked into harmful compliance. Roleplay, authority framing, multi-step escalation and encoding tricks are how that happens. A single safety score hides it.',
     approach:
       'Ten attack techniques, refusal classification, unsafe-output detection by harm category, and attack success rate plus a consistency score, all offline and deterministic. The mock target model’s compliance responses are realistic but never actionable: the toolkit measures vulnerability, it does not teach it.',
     outcome:
-      '82 tests passing, CI green. The example run throws 180 attacks at the mock model. It complies with half of them — ASR 50.0% — and its answers are consistent 0.0% of the time. The number is ugly, and it is exactly what the tool is for.',
+      '82 tests passing, CI green. The example run throws 180 attacks at the mock model. It complies with half of them (ASR 50.0%), and its answers are consistent 0.0% of the time. The number is ugly, and it is exactly what the tool is for.',
     evidence: ['82 tests passing', 'CI green', 'ASR 50.0% · consistency 0.0% on the example run'],
     stack: ['Python', 'Standard library', 'pytest', 'CLI'],
     repo: 'https://github.com/Sharif899/ai-safety-red-teaming',
@@ -113,13 +113,13 @@ export const caseStudies: CaseStudy[] = [
     id: 'annotation-qa-toolkit',
     index: '04',
     title: 'annotation-qa-toolkit',
-    oneLiner: 'Annotation quality control for image and video labelling.',
+    oneLiner: 'Catches the labelling mistakes that become model mistakes.',
     problem:
       'Labelling errors compound into model errors, and two annotators disagreeing silently is worse than disagreeing loudly. A dataset with an out-of-bounds box or a duplicate nobody noticed is a dataset that teaches the wrong thing.',
     approach:
-      'Readers for COCO, YOLO, Pascal VOC, Labelbox, SuperAnnotate and Roboflow exports; ten named QA checks — out-of-bounds and degenerate boxes, orphans, unknown classes, duplicates, heavy overlap, tiny boxes, empty images, near-duplicate class names, rare classes; and annotator agreement by Cohen’s kappa and IoU-based box matching.',
+      'Readers for COCO, YOLO, Pascal VOC, Labelbox, SuperAnnotate and Roboflow exports; ten named QA checks: out-of-bounds and degenerate boxes, orphans, unknown classes, duplicates, heavy overlap, tiny boxes, empty images, near-duplicate class names, rare classes; and annotator agreement by Cohen’s kappa and IoU-based box matching.',
     outcome:
-      '88 tests passing, CI green. On the deliberately imperfect example set the toolkit finds 7 issues (1 error, 6 warnings) and measures agreement at κ 0.886 with a box match rate of 0.833 — agreement you can quote, not assume.',
+      '88 tests passing, CI green. On the deliberately imperfect example set the toolkit finds 7 issues (1 error, 6 warnings) and measures agreement at κ 0.886 with a box match rate of 0.833. That is agreement you can quote, not assume.',
     evidence: ['88 tests passing', 'CI green', 'κ 0.886 · match rate 0.833 on the example set'],
     stack: ['Python', 'Standard library', 'pytest', 'CLI'],
     repo: 'https://github.com/Sharif899/annotation-qa-toolkit',
@@ -144,9 +144,16 @@ export const moreWork: MoreWorkItem[] = [
     repo: 'https://github.com/Sharif899/ml-evaluation-toolkit',
   },
   {
+    title: 'spark-mlflow-eval-pipeline',
+    description:
+      'Pure-Python scoring (rubrics, factual checks, calibration, kappa), a PySpark job for distributed scoring, and MLflow run tracking and comparison.',
+    proof: '87 tests · CI green · model-a mean 3.885 vs model-b 3.52',
+    repo: 'https://github.com/Sharif899/spark-mlflow-eval-pipeline',
+  },
+  {
     title: 'OsogboRent',
     description:
-      'Houses and shops for rent and sale in Osogbo, Nigeria — search by area, type and price, request board, agent dashboard.',
+      'Houses and shops for rent and sale in Osogbo, Nigeria. Search by area, type and price, with a request board and agent dashboard.',
     proof: 'Live product · Next.js + Supabase · tests + CI green',
     repo: 'https://github.com/Sharif899/houseplug',
     live: 'https://osogborent.com',
@@ -201,14 +208,14 @@ export const beliefs: Belief[] = [
   {
     index: '01',
     title: 'If two annotators disagree, the rubric is broken',
-    body: 'Disagreement is not noise to average away. It is the rubric telling you the task is unclear, the categories overlap, or the instructions contradict each other. I measure agreement — Cohen’s kappa — on every evaluation I run, and I treat a low kappa as a finding about the task design. Fix the rubric, then re-score. Do not average two wrong answers and call the middle right.',
+    body: 'Disagreement is not noise to average away. It is the rubric telling you the task is unclear, the categories overlap, or the instructions contradict each other. I measure agreement (Cohen’s kappa) on every evaluation I run, and I treat a low kappa as a finding about the task design. Fix the rubric, then re-score. Do not average two wrong answers and call the middle right.',
     showsUpLabel: 'Kappa and IoU agreement, measured in annotation-qa-toolkit',
     showsUpHref: 'https://github.com/Sharif899/annotation-qa-toolkit',
   },
   {
     index: '02',
     title: 'A leaderboard measures the benchmark, not the model',
-    body: 'A model can top a public leaderboard and still be talked into harmful compliance in three turns. I score against a rubric I can defend, then I attack the model — roleplay, authority framing, escalation, encoding — and I quote the attack success rate as it is. In the example run for the red-teaming toolkit it is 50%. A safety number you can trust has to survive being ugly.',
+    body: 'A model can top a public leaderboard and still be talked into harmful compliance in three turns. I score against a rubric I can defend, then I attack the model (roleplay, authority framing, escalation, encoding) and I quote the attack success rate as it is. In the example run for the red-teaming toolkit it is 50%. A safety number you can trust has to survive being ugly.',
     showsUpLabel: 'Ten attack techniques and ASR scoring in ai-safety-red-teaming',
     showsUpHref: 'https://github.com/Sharif899/ai-safety-red-teaming',
   },
@@ -222,14 +229,14 @@ export const beliefs: Belief[] = [
   {
     index: '04',
     title: 'A verdict you cannot explain is not a verdict',
-    body: '“The model felt wrong” is not an evaluation. Every response I score is judged on named criteria — factual accuracy, reasoning, instruction adherence, helpfulness, safety — each with a rationale and a quote from the response itself. If I cannot show my working, I do not ship the score.',
+    body: '“The model felt wrong” is not an evaluation. Every response I score is judged on named criteria (factual accuracy, reasoning, instruction adherence, helpfulness, safety), each with a rationale and a quote from the response itself. If I cannot show my working, I do not ship the score.',
     showsUpLabel: 'Rubric scoring with evidence quotes in llm-eval-toolkit',
     showsUpHref: 'https://github.com/Sharif899/llm-eval-toolkit',
   },
 ]
 
 export const beliefsCoda =
-  'One more thing, less a belief than a rule: nothing leaves the room. The data you evaluate on is usually the most sensitive thing a company holds — real prompts, real failures, real customers. My tools run offline, with no API key and no network call. The method is public and the code is on GitHub. The data stays where it is.'
+  'One more thing, less a belief than a rule: nothing leaves the room. The data you evaluate on is usually the most sensitive thing a company holds: real prompts, real failures, real customers. My tools run offline, with no API key and no network call. The method is public and the code is on GitHub. The data stays where it is.'
 
 export interface Story {
   index: string
@@ -243,9 +250,9 @@ export const stories: Story[] = [
     index: '01',
     title: 'The duplicate that cost a company its customers’ trust',
     paragraphs: [
-      'At Seamfix, the same person kept coming back as two customers. A retried request, a mistyped document number, a second application — each one created a new record. Each new record meant a support ticket, a confused agent, and a customer asked to prove who they were twice.',
+      'At Seamfix, the same person kept coming back as two customers. A retried request, a mistyped document number, a second application. Each one created a new record. Each new record meant a support ticket, a confused agent, and a customer asked to prove who they were twice.',
       'The fix was not a better form. It was a rule: a document number belongs to one application, and a retried request returns the application that already exists instead of making a second one. Duplicate records fell 75%. API response time fell 39% on systems handling 20,000+ requests a day.',
-      'The KYC service on this page is the same decision, rebuilt in the open — a state machine with an audit log, duplicate detection that answers with the existing application, and idempotency keys so a retry can never create a second customer.',
+      'The KYC service on this page is the same decision, rebuilt in the open: a state machine with an audit log, duplicate detection that answers with the existing application, and idempotency keys so a retry can never create a second customer.',
     ],
     source: 'Seamfix Nigeria, 2020–present · figures from the CV',
   },
@@ -253,7 +260,7 @@ export const stories: Story[] = [
     index: '02',
     title: 'The ugly number I published anyway',
     paragraphs: [
-      'The first time I ran the red-teaming toolkit end to end, the mock model complied with half of 180 attacks. Fifty per cent. I could have made the mock safer — softened its responses, tuned it until the number looked respectable — and nobody reading the README would have known.',
+      'The first time I ran the red-teaming toolkit end to end, the mock model complied with half of 180 attacks. Fifty per cent. I could have made the mock safer (softened its responses, tuned it until the number looked respectable) and nobody reading the README would have known.',
       'I left it. A toolkit that only reports good numbers is a press release, not a test. The point of the tool is to show you the number you would rather not see, because that is the only number worth acting on.',
       'Consistency: 0.0%. The model contradicts itself on the same request. That is in the README too.',
     ],
@@ -271,13 +278,13 @@ export const engagements: Engagement[] = [
   {
     title: 'LLM evaluation & benchmarking',
     scope:
-      'Rubric design, evaluation datasets, pairwise RLHF comparison, factual-accuracy checks, red-teaming and calibration — for teams that need to know, with numbers, whether their model is ready.',
+      'Rubric design, evaluation datasets, pairwise RLHF comparison, factual-accuracy checks, red-teaming and calibration, for teams that need to know, with numbers, whether their model is ready.',
     proof: '12,000+ responses scored · 75,000+ test cases supported · 97% quality rating',
   },
   {
     title: 'Annotation QA & data quality',
     scope:
-      'QA frameworks and reviewer calibration for image, video and text labelling — checks, agreement measurement and reviewer feedback loops that raise the data instead of just counting it.',
+      'QA frameworks and reviewer calibration for image, video and text labelling: checks, agreement measurement and reviewer feedback loops that raise the data instead of just counting it.',
     proof: '3,000+ contributor submissions audited · promoted to QA Reviewer in one year',
   },
   {
@@ -289,8 +296,8 @@ export const engagements: Engagement[] = [
   {
     title: 'Full-stack product builds',
     scope:
-      'Production web products in Next.js, TypeScript and Supabase — from a live property marketplace to the evaluation tools on this page.',
-    proof: 'OsogboRent live at osogborent.com · 5 open-source evaluation tools shipped in 2026',
+      'Production web products in Next.js, TypeScript and Supabase, from a live property marketplace to the evaluation tools on this page.',
+    proof: 'OsogboRent live at osogborent.com · 6 open-source evaluation tools shipped in 2026',
   },
 ]
 
@@ -307,7 +314,7 @@ export const experience: ExperienceRole[] = [
     role: 'AI Trainer & Annotation QA Reviewer',
     org: 'iMerit',
     meta: 'Remote · Freelance',
-    dates: '2019 — Present',
+    dates: '2019–Present',
     outcomes: [
       'Evaluated 12,000+ LLM responses across 8+ projects at a 97% quality rating.',
       'Audited 3,000+ contributor submissions.',
@@ -318,7 +325,7 @@ export const experience: ExperienceRole[] = [
     role: 'AI Evaluation Engineer',
     org: 'Databricks',
     meta: 'Remote · Part-time',
-    dates: 'Jul 2020 — Present',
+    dates: 'Jul 2020–Present',
     outcomes: [
       'Designed evaluation datasets and scoring frameworks supporting 75,000+ LLM test cases.',
       'Built Python evaluation pipelines for 20+ ML models with SQL, Apache Spark and MLflow.',
@@ -329,7 +336,7 @@ export const experience: ExperienceRole[] = [
     role: 'Senior Software Engineer',
     org: 'Seamfix Nigeria',
     meta: 'Lagos · Full-time',
-    dates: '2020 — Present · promoted 2022',
+    dates: '2020–Present · promoted 2022',
     outcomes: [
       'Identity verification, KYC and digital onboarding in Java, Spring Boot, Python and PostgreSQL.',
       'Reduced duplicate records by 75% and API response time by 39% on systems handling 20,000+ requests a day.',
@@ -338,7 +345,7 @@ export const experience: ExperienceRole[] = [
   },
   {
     role: 'AI Training Expert',
-    org: 'micro1 — Runway Annotations Project',
+    org: 'micro1, Runway Annotations Project',
     meta: 'Remote · Project-based',
     dates: 'Project-based',
     outcomes: [
@@ -362,12 +369,12 @@ export const capabilities: CapabilityGroup[] = [
   {
     category: 'AI evaluation & training data',
     items: [
-      { name: 'LLM evaluation', why: 'the day job — scoring responses against a rubric, with the working shown.' },
+      { name: 'LLM evaluation', why: 'the day job: scoring responses against a rubric, with the working shown.' },
       { name: 'RLHF', why: 'pairwise comparison is how a preference becomes a number.' },
       { name: 'Rubric design', why: 'a rubric is a contract: if it cannot be explained, it cannot be defended.' },
       { name: 'Annotation QA', why: 'labels are the training data. Bad labels are a bad model, later.' },
       { name: 'Cohen’s kappa', why: 'the one number that says whether your annotators agree or are guessing together.' },
-      { name: 'Hallucination detection', why: 'factual checks against a reference — not a second opinion from the same model.' },
+      { name: 'Hallucination detection', why: 'factual checks against a reference. Not a second opinion from the same model.' },
       { name: 'Red-teaming', why: 'benchmarks flatter models. Adversaries do not.' },
       { name: 'Calibration', why: 'confidence you can quote has to be measured first.' },
     ],
@@ -377,7 +384,7 @@ export const capabilities: CapabilityGroup[] = [
     items: [
       { name: 'Python', why: 'the evaluation tools are stdlib-only Python. A scoring harness should have no moving parts.' },
       { name: 'Java', why: 'what Seamfix runs in production. Boring, typed, auditable.' },
-      { name: 'TypeScript', why: 'the product work — OsogboRent and this site.' },
+      { name: 'TypeScript', why: 'the product work: OsogboRent and this site.' },
       { name: 'SQL', why: 'evaluation at Databricks scale runs on SQL and Spark, not spreadsheets.' },
     ],
   },
@@ -387,7 +394,7 @@ export const capabilities: CapabilityGroup[] = [
       { name: 'pandas', why: 'every report in the toolkits starts as a DataFrame.' },
       { name: 'NumPy', why: 'the arithmetic under the metrics.' },
       { name: 'scikit-learn', why: 'the reference implementation I check my own metrics against.' },
-      { name: 'Apache Spark', why: 'evaluation pipelines for 20+ models at Databricks — and the Spark + MLflow pipeline I am building now.' },
+      { name: 'Apache Spark', why: 'evaluation pipelines for 20+ models at Databricks, and the Spark + MLflow pipeline I shipped in 2026.' },
       { name: 'MLflow', why: 'runs, parameters and metrics logged where anyone can find them.' },
     ],
   },
@@ -434,7 +441,7 @@ export const education = [
 
 export const certifications = [
   {
-    name: 'ISTQB Certified Tester — AI Testing (CT-AI v2.0)',
+    name: 'ISTQB Certified Tester – AI Testing (CT-AI v2.0)',
     issuer: 'ISTQB',
     year: 'Jan 2026',
   },
@@ -444,7 +451,7 @@ export const certifications = [
     year: 'Jul 2025',
   },
   {
-    name: 'AWS Certified Machine Learning Engineer — Associate',
+    name: 'AWS Certified Machine Learning Engineer – Associate',
     issuer: 'Amazon Web Services',
     year: 'Feb 2025',
   },
@@ -460,25 +467,25 @@ export const writing: WritingItem[] = [
   {
     title: 'How I score an LLM response',
     description:
-      'The rubric, the pairwise comparison and the agreement check behind llm-eval-toolkit — and the limits of deterministic scoring, stated plainly.',
+      'The rubric, the pairwise comparison and the agreement check behind llm-eval-toolkit, and the limits of deterministic scoring, stated plainly.',
     href: 'https://github.com/Sharif899/llm-eval-toolkit#readme',
   },
   {
     title: 'How I test a model that wants to comply',
     description:
-      'Ten attack techniques, refusal classification and what an attack success rate of 50% actually means — from ai-safety-red-teaming.',
+      'Ten attack techniques, refusal classification and what an attack success rate of 50% actually means, from ai-safety-red-teaming.',
     href: 'https://github.com/Sharif899/ai-safety-red-teaming#readme',
   },
   {
     title: 'How I measure annotation quality',
     description:
-      'Ten named QA checks and IoU-based agreement: what a κ of 0.886 tells you about a labelling team — from annotation-qa-toolkit.',
+      'Ten named QA checks and IoU-based agreement: what a κ of 0.886 tells you about a labelling team, from annotation-qa-toolkit.',
     href: 'https://github.com/Sharif899/annotation-qa-toolkit#readme',
   },
   {
     title: 'How I calibrate a classifier',
     description:
-      'Expected calibration error, Brier score and temperature scaling, with the caveat that fitting on the data you measure flatters the result — from ml-evaluation-toolkit.',
+      'Expected calibration error, Brier score and temperature scaling, with the caveat that fitting on the data you measure flatters the result, from ml-evaluation-toolkit.',
     href: 'https://github.com/Sharif899/ml-evaluation-toolkit#readme',
   },
 ]

@@ -20,11 +20,11 @@ export default function Contact() {
               If you need a verdict you can defend, write to me.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-ink-soft md:text-lg">
-              I am available for remote evaluation and engineering work — LLM
+              I am available for remote evaluation and engineering work: LLM
               evaluation and benchmarking, annotation QA, KYC and onboarding
               systems, and full-stack product builds. Tell me what you need
               measured or built. I will tell you straight whether I am the
-              right person for it — and if I am not, I will tell you that too.
+              right person for it. And if I am not, I will tell you that too.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
