@@ -157,6 +157,38 @@ export const caseStudies: CaseStudy[] = [
     repo: 'https://github.com/Sharif899/yoruba-llm-benchmark',
     year: '2026',
   },
+  {
+    id: 'live-red-teaming',
+    index: '07',
+    title: 'live-red-teaming',
+    oneLiner: 'Live red-teaming that shows which jailbreaks actually work on real models.',
+    problem:
+      'A model that refuses a direct harmful request is not necessarily safe. Role-play, hypothetical framing and encoding are how a refusal gets talked around, and a safety score that only tests direct requests will never see it.',
+    approach:
+      'The same 18 harmful requests and 10 attack techniques from my red-teaming toolkit, run against Gemini and GPT-OSS 120B over their live APIs, with no mock target anywhere. 360 live attacks, scored with a deterministic refusal classifier, and every response saved so the numbers can be reproduced.',
+    outcome:
+      'Gemini lets 13.9% through, and its safety depends heavily on framing: role-play breaks it 83.3% of the time, while direct requests fail 94.4% of the time. GPT-OSS 120B refuses 99.4% of everything and holds the line across every framing. Its one counted success is a prompt it misread as a question about forgetting a passport, so its true harmful-content rate is zero. 119 tests passing, CI green.',
+    evidence: ['119 tests passing', 'CI green', 'ASR 13.9% Gemini · 0.6% GPT-OSS 120B'],
+    stack: ['Python', 'Standard library', 'pytest', 'CLI'],
+    repo: 'https://github.com/Sharif899/live-red-teaming',
+    year: '2026',
+  },
+  {
+    id: 'llm-eval-leaderboard',
+    index: '08',
+    title: 'llm-eval-leaderboard',
+    oneLiner: 'A leaderboard of live results, not another toolkit.',
+    problem:
+      'Most evaluation repos ship a toolkit and a demo run. A recruiter cannot tell whether the numbers came from a real model or a script. What was missing was a public artifact with real results from real models.',
+    approach:
+      '100 items: 60 from my Yoruba benchmark, run live for the first time, plus 40 new general items. Two live models, Gemini and GPT-OSS 120B, at temperature 0, scored with a deterministic five-criterion rubric, with bootstrap 95% confidence intervals and a reproducible runner. Every response saved.',
+    outcome:
+      'Gemini scores 3.820 with a 49.0% pass rate; GPT-OSS 120B scores 3.804 with a 47.0% pass rate, effectively tied. Both models refused all 20 harmful requests. The Yoruba items are where the models diverge most: Gemini leads on Yoruba, GPT-OSS leads on the general set. 65 tests passing, CI green.',
+    evidence: ['65 tests passing', 'CI green', 'Gemini 3.820 · GPT-OSS 120B 3.804'],
+    stack: ['Python', 'Standard library', 'pytest', 'CLI'],
+    repo: 'https://github.com/Sharif899/llm-eval-leaderboard',
+    year: '2026',
+  },
 ]
 
 export interface MoreWorkItem {
@@ -343,7 +375,7 @@ export const engagements: Engagement[] = [
     title: 'Full-stack product builds',
     scope:
       'Production web products in Next.js, TypeScript and Supabase, from a live property marketplace to the evaluation tools on this page.',
-    proof: 'OsogboRent live at osogborent.com · 10 open-source evaluation tools shipped in 2026',
+    proof: 'OsogboRent live at osogborent.com · 12 open-source evaluation tools shipped in 2026',
   },
 ]
 

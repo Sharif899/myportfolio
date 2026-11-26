@@ -35,7 +35,7 @@ export default function Hero() {
             {' · '}
             <a className="text-link" href="#experience">12,000+ responses scored at 99% quality</a>
             {' · '}
-            <a className="text-link" href="#work">10 open-source evaluation tools</a>
+            <a className="text-link" href="#work">12 open-source evaluation tools</a>
           </p>
         </Reveal>
 
@@ -46,9 +46,9 @@ export default function Hero() {
               <ArrowDown size={16} aria-hidden="true" />
             </a>
             <p className="mt-6 max-w-2xl border-l-2 border-pine pl-4 text-base leading-relaxed text-ink-muted">
-              I shipped the Northstar evaluation platform for a client and a
-              Yoruba LLM benchmark, and I am taking on remote evaluation and
-              engineering work. Write to me:{' '}
+              I ran live red-teaming and a live evaluation leaderboard
+              against Gemini and GPT-OSS 120B, and I am taking on remote
+              evaluation and engineering work. Write to me:{' '}
               <a className="text-link" href={`mailto:${siteConfig.email}`}>
                 {siteConfig.email}
               </a>
