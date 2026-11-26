@@ -325,7 +325,7 @@ export const engagements: Engagement[] = [
     title: 'LLM evaluation & benchmarking',
     scope:
       'Rubric design, evaluation datasets, pairwise RLHF comparison, factual-accuracy checks, red-teaming and calibration, for teams that need to know, with numbers, whether their model is ready.',
-    proof: '12,000+ responses scored · 75,000+ test cases supported · 97% quality rating',
+    proof: '12,000+ responses scored · 75,000+ test cases supported · 99% quality rating',
   },
   {
     title: 'Annotation QA & data quality',
@@ -362,7 +362,7 @@ export const experience: ExperienceRole[] = [
     meta: 'Remote · Freelance',
     dates: '2019–Present',
     outcomes: [
-      'Evaluated 12,000+ LLM responses across 8+ projects at a 97% quality rating.',
+      'Evaluated 12,000+ LLM responses across 8+ projects at a 99% quality rating.',
       'Audited 3,000+ contributor submissions.',
       'Promoted from AI Annotator to QA Reviewer after one year.',
     ],

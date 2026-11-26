@@ -33,7 +33,7 @@ export default function Hero() {
             {' · '}
             <a className="text-link" href="#experience">Databricks since 2020</a>
             {' · '}
-            <a className="text-link" href="#experience">12,000+ responses scored at 97% quality</a>
+            <a className="text-link" href="#experience">12,000+ responses scored at 99% quality</a>
             {' · '}
             <a className="text-link" href="#work">10 open-source evaluation tools</a>
           </p>
