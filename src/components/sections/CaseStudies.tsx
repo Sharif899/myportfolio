@@ -38,8 +38,8 @@ export default function CaseStudies() {
         <SectionHeading
           number="01"
           kicker="Selected work"
-          title="Six tools that encode how I evaluate"
-          intro="Each one started as a problem I kept running into while doing the job. All ten are public, all ten have tests, and the READMEs say where each tool stops. A tool that hides its limits is a demo, not a tool."
+          title="Eight tools that encode how I evaluate"
+          intro="Each one started as a problem I kept running into while doing the job. All twelve are public, all twelve have tests, and the READMEs say where each tool stops. A tool that hides its limits is a demo, not a tool."
         />
 
         <div className="flex flex-col gap-14 md:gap-20">
@@ -49,7 +49,7 @@ export default function CaseStudies() {
                 aria-labelledby={`case-${study.id}`}
                 className="grid gap-6 rounded-sm border border-hairline bg-surface p-6 md:grid-cols-[220px_1fr] md:gap-10 md:p-10"
               >
-                {/* Fact column: alternates sides so the six entries do not read as one repeated card */}
+                {/* Fact column: alternates sides so the eight entries do not read as one repeated card */}
                 <div
                   className={
                     i % 2 === 1
