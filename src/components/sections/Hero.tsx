@@ -46,7 +46,7 @@ export default function Hero() {
               <ArrowDown size={16} aria-hidden="true" />
             </a>
             <p className="mt-6 max-w-2xl border-l-2 border-pine pl-4 text-base leading-relaxed text-ink-muted">
-              I ran live red-teaming and a live evaluation leaderboard
+              I ran live red teaming and a live evaluation leaderboard
               against Gemini and GPT-OSS 120B, and I am taking on remote
               evaluation and engineering work. Write to me:{' '}
               <a className="text-link" href={`mailto:${siteConfig.email}`}>

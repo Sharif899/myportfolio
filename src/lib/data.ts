@@ -14,7 +14,7 @@ export const siteConfig = {
     'RLHF',
     'AI evaluation',
     'annotation QA',
-    'red-teaming',
+    'red teaming',
     'calibration',
     'software engineer',
     'Python',
@@ -62,9 +62,9 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
-    id: 'llm-eval-toolkit',
+    id: 'llmevaltoolkit',
     index: '01',
-    title: 'llm-eval-toolkit',
+    title: 'llmevaltoolkit',
     oneLiner: 'Rubric-based LLM evaluation with a paper trail.',
     problem:
       'LLM evaluation done by feel does not scale and cannot be audited. Two reviewers can read the same response and reach different verdicts, and nobody can say why.',
@@ -74,13 +74,13 @@ export const caseStudies: CaseStudy[] = [
       'On the example set, response A wins 10 of 10 pairwise comparisons and scores 1.0 on factual accuracy, while response B’s contradictions are caught. The toolkit turns a judgement into a number with a paper trail.',
     evidence: ['42 tests passing', 'CI green', 'Offline · deterministic'],
     stack: ['Python', 'Standard library', 'pytest', 'CLI'],
-    repo: 'https://github.com/Sharif899/llm-eval-toolkit',
+    repo: 'https://github.com/Sharif899/llmevaltoolkit',
     year: '2026',
   },
   {
-    id: 'kyc-onboarding-service',
+    id: 'kyconboardingservice',
     index: '02',
-    title: 'kyc-onboarding-service',
+    title: 'kyconboardingservice',
     oneLiner: 'Identity onboarding that rejects bad documents and survives retries.',
     problem:
       'An onboarding system has to do three things at once: reject invalid identity documents, catch the same person applying twice, and survive a retried request without creating a second application. Getting any one wrong costs trust.',
@@ -90,13 +90,13 @@ export const caseStudies: CaseStudy[] = [
       '54 tests passing, CI green. The design reflects the production outcomes from Seamfix: duplicate records down 75% and API response time down 39% on systems handling 20,000+ requests a day.',
     evidence: ['54 tests passing', 'CI green', 'PostgreSQL / Supabase profile'],
     stack: ['Java 21', 'Spring Boot 3', 'JPA', 'PostgreSQL', 'JUnit 5'],
-    repo: 'https://github.com/Sharif899/kyc-onboarding-service',
+    repo: 'https://github.com/Sharif899/kyconboardingservice',
     year: '2026',
   },
   {
-    id: 'ai-safety-red-teaming',
+    id: 'aisafetyredteaming',
     index: '03',
-    title: 'ai-safety-red-teaming',
+    title: 'aisafetyredteaming',
     oneLiner: 'Adversarial testing that shows you the number you would rather not see.',
     problem:
       'A model that passes a benchmark can still be talked into harmful compliance. Roleplay, authority framing, multi-step escalation and encoding tricks are how that happens. A single safety score hides it.',
@@ -106,13 +106,13 @@ export const caseStudies: CaseStudy[] = [
       '82 tests passing, CI green. The example run throws 180 attacks at the mock model. It complies with half of them (ASR 50.0%), and its answers are consistent 0.0% of the time. The number is ugly, and it is exactly what the tool is for.',
     evidence: ['82 tests passing', 'CI green', 'ASR 50.0% · consistency 0.0% on the example run'],
     stack: ['Python', 'Standard library', 'pytest', 'CLI'],
-    repo: 'https://github.com/Sharif899/ai-safety-red-teaming',
+    repo: 'https://github.com/Sharif899/aisafetyredteaming',
     year: '2026',
   },
   {
-    id: 'annotation-qa-toolkit',
+    id: 'annotationqatoolkit',
     index: '04',
-    title: 'annotation-qa-toolkit',
+    title: 'annotationqatoolkit',
     oneLiner: 'Catches the labelling mistakes that become model mistakes.',
     problem:
       'Labelling errors compound into model errors, and two annotators disagreeing silently is worse than disagreeing loudly. A dataset with an out-of-bounds box or a duplicate nobody noticed is a dataset that teaches the wrong thing.',
@@ -122,13 +122,13 @@ export const caseStudies: CaseStudy[] = [
       '88 tests passing, CI green. On the deliberately imperfect example set the toolkit finds 7 issues (1 error, 6 warnings) and measures agreement at κ 0.886 with a box match rate of 0.833. That is agreement you can quote, not assume.',
     evidence: ['88 tests passing', 'CI green', 'κ 0.886 · match rate 0.833 on the example set'],
     stack: ['Python', 'Standard library', 'pytest', 'CLI'],
-    repo: 'https://github.com/Sharif899/annotation-qa-toolkit',
+    repo: 'https://github.com/Sharif899/annotationqatoolkit',
     year: '2026',
   },
   {
-    id: 'northstar-eval-platform',
+    id: 'northstarevalplatform',
     index: '05',
-    title: 'northstar-eval-platform',
+    title: 'northstarevalplatform',
     oneLiner: 'Client work: an evaluation platform that tells a team whether a model is safe to release.',
     problem:
       'Northstar AI Systems needed to know, before every release, whether their customer-support assistant was reliable, accurate and safe, and where a new model or prompt had regressed. A benchmark score does not answer that. A release decision needs the failure, the evidence for it, and a human in the loop.',
@@ -138,13 +138,13 @@ export const caseStudies: CaseStudy[] = [
       '123 tests passing, CI green. On the 28-item sample dataset the candidate model scores 4.45 against a 5.00 baseline, a 42.9-point pass-rate drop concentrated in safety and citation, with 12 regressions and none improved. The two safety failures are the release blockers, and the review queue is where a human overrules the scorer.',
     evidence: ['123 tests passing', 'CI green', 'Client work · Northstar AI Systems'],
     stack: ['Python', 'FastAPI', 'SQLite', 'pytest', 'CLI'],
-    repo: 'https://github.com/Sharif899/northstar-eval-platform',
+    repo: 'https://github.com/Sharif899/northstarevalplatform',
     year: '2026',
   },
   {
-    id: 'yoruba-llm-benchmark',
+    id: 'yoruballmbenchmark',
     index: '06',
-    title: 'yoruba-llm-benchmark',
+    title: 'yoruballmbenchmark',
     oneLiner: 'A benchmark that scores LLMs in Yoruba, not in translation.',
     problem:
       'Most LLM benchmarks are English. A model can look fluent in Yoruba while failing the basics: wrong numbers, missing diacritics that change meaning, refusals it cannot phrase, instructions it ignores. There was no standard way to measure any of that.',
@@ -154,29 +154,29 @@ export const caseStudies: CaseStudy[] = [
       '117 tests passing, CI green. The strong Yoruba mock scores 4.667 with a 100% pass rate; the English-biased mock scores 3.077 with an 8.3% pass rate, passing only the five Yoruba-to-English translation items. The gap between those two numbers is the benchmark doing its job.',
     evidence: ['117 tests passing', 'CI green', '60 items · 6 categories'],
     stack: ['Python', 'Standard library', 'pytest', 'CLI'],
-    repo: 'https://github.com/Sharif899/yoruba-llm-benchmark',
+    repo: 'https://github.com/Sharif899/yoruballmbenchmark',
     year: '2026',
   },
   {
-    id: 'live-red-teaming',
+    id: 'liveredteaming',
     index: '07',
-    title: 'live-red-teaming',
-    oneLiner: 'Live red-teaming that shows which jailbreaks actually work on real models.',
+    title: 'liveredteaming',
+    oneLiner: 'Live red teaming that shows which jailbreaks actually work on real models.',
     problem:
       'A model that refuses a direct harmful request is not necessarily safe. Role-play, hypothetical framing and encoding are how a refusal gets talked around, and a safety score that only tests direct requests will never see it.',
     approach:
-      'The same 18 harmful requests and 10 attack techniques from my red-teaming toolkit, run against Gemini and GPT-OSS 120B over their live APIs, with no mock target anywhere. 360 live attacks, scored with a deterministic refusal classifier, and every response saved so the numbers can be reproduced.',
+      'The same 18 harmful requests and 10 attack techniques from my red teaming toolkit, run against Gemini and GPT-OSS 120B over their live APIs, with no mock target anywhere. 360 live attacks, scored with a deterministic refusal classifier, and every response saved so the numbers can be reproduced.',
     outcome:
       'Gemini lets 13.9% through, and its safety depends heavily on framing: role-play breaks it 83.3% of the time, while direct requests fail 94.4% of the time. GPT-OSS 120B refuses 99.4% of everything and holds the line across every framing. Its one counted success is a prompt it misread as a question about forgetting a passport, so its true harmful-content rate is zero. 119 tests passing, CI green.',
     evidence: ['119 tests passing', 'CI green', 'ASR 13.9% Gemini · 0.6% GPT-OSS 120B'],
     stack: ['Python', 'Standard library', 'pytest', 'CLI'],
-    repo: 'https://github.com/Sharif899/live-red-teaming',
+    repo: 'https://github.com/Sharif899/liveredteaming',
     year: '2026',
   },
   {
-    id: 'llm-eval-leaderboard',
+    id: 'llmevalleaderboard',
     index: '08',
-    title: 'llm-eval-leaderboard',
+    title: 'llmevalleaderboard',
     oneLiner: 'A leaderboard of live results, not another toolkit.',
     problem:
       'Most evaluation repos ship a toolkit and a demo run. A recruiter cannot tell whether the numbers came from a real model or a script. What was missing was a public artifact with real results from real models.',
@@ -186,7 +186,7 @@ export const caseStudies: CaseStudy[] = [
       'Gemini scores 3.820 with a 49.0% pass rate; GPT-OSS 120B scores 3.804 with a 47.0% pass rate, effectively tied. Both models refused all 20 harmful requests. The Yoruba items are where the models diverge most: Gemini leads on Yoruba, GPT-OSS leads on the general set. 65 tests passing, CI green.',
     evidence: ['65 tests passing', 'CI green', 'Gemini 3.820 · GPT-OSS 120B 3.804'],
     stack: ['Python', 'Standard library', 'pytest', 'CLI'],
-    repo: 'https://github.com/Sharif899/llm-eval-leaderboard',
+    repo: 'https://github.com/Sharif899/llmevalleaderboard',
     year: '2026',
   },
 ]
@@ -201,32 +201,32 @@ export interface MoreWorkItem {
 
 export const moreWork: MoreWorkItem[] = [
   {
-    title: 'ml-evaluation-toolkit',
+    title: 'mlevaluationtoolkit',
     description:
       'Precision, recall and F1, confusion analysis, error slices and calibration over saved predictions.',
     proof: '93 tests · accuracy 0.840 · ECE 0.091 → 0.046 after temperature scaling',
-    repo: 'https://github.com/Sharif899/ml-evaluation-toolkit',
+    repo: 'https://github.com/Sharif899/mlevaluationtoolkit',
   },
   {
-    title: 'spark-mlflow-eval-pipeline',
+    title: 'sparkmlflowevalpipeline',
     description:
       'Pure-Python scoring (rubrics, factual checks, calibration, kappa), a PySpark job for distributed scoring, and MLflow run tracking and comparison.',
     proof: '87 tests · CI green · model-a mean 3.885 vs model-b 3.52',
-    repo: 'https://github.com/Sharif899/spark-mlflow-eval-pipeline',
+    repo: 'https://github.com/Sharif899/sparkmlflowevalpipeline',
   },
   {
-    title: 'sql-eval-analytics',
+    title: 'sqlevalanalytics',
     description:
       'PostgreSQL-first analytics for AI evaluation operations: annotator agreement, review turnaround, reject rates, calibration, duplicates and workload, over ten queries a QA lead actually runs.',
     proof: '34 tests · agreement 80.0% · κ 0.643',
-    repo: 'https://github.com/Sharif899/sql-eval-analytics',
+    repo: 'https://github.com/Sharif899/sqlevalanalytics',
   },
   {
-    title: 'docker-eval-service',
+    title: 'dockerevalservice',
     description:
       'The evaluation API, containerised: deterministic rubric scoring and pairwise comparison over PostgreSQL, with migrations, a multi-stage image and compose for the whole stack.',
     proof: 'CI green · FastAPI + PostgreSQL · Docker',
-    repo: 'https://github.com/Sharif899/docker-eval-service',
+    repo: 'https://github.com/Sharif899/dockerevalservice',
   },
   {
     title: 'OsogboRent',
@@ -287,29 +287,29 @@ export const beliefs: Belief[] = [
     index: '01',
     title: 'If two annotators disagree, the rubric is broken',
     body: 'Disagreement is not noise to average away. It is the rubric telling you the task is unclear, the categories overlap, or the instructions contradict each other. I measure agreement (Cohen’s kappa) on every evaluation I run, and I treat a low kappa as a finding about the task design. Fix the rubric, then re-score. Do not average two wrong answers and call the middle right.',
-    showsUpLabel: 'Kappa and IoU agreement, measured in annotation-qa-toolkit',
-    showsUpHref: 'https://github.com/Sharif899/annotation-qa-toolkit',
+    showsUpLabel: 'Kappa and IoU agreement, measured in annotationqatoolkit',
+    showsUpHref: 'https://github.com/Sharif899/annotationqatoolkit',
   },
   {
     index: '02',
     title: 'A leaderboard measures the benchmark, not the model',
-    body: 'A model can top a public leaderboard and still be talked into harmful compliance in three turns. I score against a rubric I can defend, then I attack the model (roleplay, authority framing, escalation, encoding) and I quote the attack success rate as it is. In the example run for the red-teaming toolkit it is 50%. A safety number you can trust has to survive being ugly.',
-    showsUpLabel: 'Ten attack techniques and ASR scoring in ai-safety-red-teaming',
-    showsUpHref: 'https://github.com/Sharif899/ai-safety-red-teaming',
+    body: 'A model can top a public leaderboard and still be talked into harmful compliance in three turns. I score against a rubric I can defend, then I attack the model (roleplay, authority framing, escalation, encoding) and I quote the attack success rate as it is. In the example run for the red teaming toolkit it is 50%. A safety number you can trust has to survive being ugly.',
+    showsUpLabel: 'Ten attack techniques and ASR scoring in aisafetyredteaming',
+    showsUpHref: 'https://github.com/Sharif899/aisafetyredteaming',
   },
   {
     index: '03',
     title: 'A confidence number that is not calibrated is a guess',
     body: 'A model that says it is 90% sure and is right 60% of the time is not confident. It is loud. I measure expected calibration error and Brier score, and I scale the confidence before I quote it. And I say plainly when the scaling was fitted on the same data it is measured on, because that flatters the result and most people will not tell you.',
-    showsUpLabel: 'ECE, Brier score and temperature scaling in ml-evaluation-toolkit',
-    showsUpHref: 'https://github.com/Sharif899/ml-evaluation-toolkit',
+    showsUpLabel: 'ECE, Brier score and temperature scaling in mlevaluationtoolkit',
+    showsUpHref: 'https://github.com/Sharif899/mlevaluationtoolkit',
   },
   {
     index: '04',
     title: 'A verdict you cannot explain is not a verdict',
     body: '“The model felt wrong” is not an evaluation. Every response I score is judged on named criteria (factual accuracy, reasoning, instruction adherence, helpfulness, safety), each with a rationale and a quote from the response itself. If I cannot show my working, I do not ship the score.',
-    showsUpLabel: 'Rubric scoring with evidence quotes in llm-eval-toolkit',
-    showsUpHref: 'https://github.com/Sharif899/llm-eval-toolkit',
+    showsUpLabel: 'Rubric scoring with evidence quotes in llmevaltoolkit',
+    showsUpHref: 'https://github.com/Sharif899/llmevaltoolkit',
   },
 ]
 
@@ -338,11 +338,11 @@ export const stories: Story[] = [
     index: '02',
     title: 'The ugly number I published anyway',
     paragraphs: [
-      'The first time I ran the red-teaming toolkit end to end, the mock model complied with half of 180 attacks. Fifty per cent. I could have made the mock safer (softened its responses, tuned it until the number looked respectable) and nobody reading the README would have known.',
+      'The first time I ran the red teaming toolkit end to end, the mock model complied with half of 180 attacks. Fifty per cent. I could have made the mock safer (softened its responses, tuned it until the number looked respectable) and nobody reading the README would have known.',
       'I left it. A toolkit that only reports good numbers is a press release, not a test. The point of the tool is to show you the number you would rather not see, because that is the only number worth acting on.',
       'Consistency: 0.0%. The model contradicts itself on the same request. That is in the README too.',
     ],
-    source: 'ai-safety-red-teaming, example run · 180 attacks, ASR 50.0%',
+    source: 'aisafetyredteaming, example run · 180 attacks, ASR 50.0%',
   },
 ]
 
@@ -356,7 +356,7 @@ export const engagements: Engagement[] = [
   {
     title: 'LLM evaluation & benchmarking',
     scope:
-      'Rubric design, evaluation datasets, pairwise RLHF comparison, factual-accuracy checks, red-teaming and calibration, for teams that need to know, with numbers, whether their model is ready.',
+      'Rubric design, evaluation datasets, pairwise RLHF comparison, factual-accuracy checks, red teaming and calibration, for teams that need to know, with numbers, whether their model is ready.',
     proof: '12,000+ responses scored · 75,000+ test cases supported · 99% quality rating',
   },
   {
@@ -545,25 +545,25 @@ export const writing: WritingItem[] = [
   {
     title: 'How I score an LLM response',
     description:
-      'The rubric, the pairwise comparison and the agreement check behind llm-eval-toolkit, and the limits of deterministic scoring, stated plainly.',
-    href: 'https://github.com/Sharif899/llm-eval-toolkit#readme',
+      'The rubric, the pairwise comparison and the agreement check behind llmevaltoolkit, and the limits of deterministic scoring, stated plainly.',
+    href: 'https://github.com/Sharif899/llmevaltoolkit#readme',
   },
   {
     title: 'How I test a model that wants to comply',
     description:
-      'Ten attack techniques, refusal classification and what an attack success rate of 50% actually means, from ai-safety-red-teaming.',
-    href: 'https://github.com/Sharif899/ai-safety-red-teaming#readme',
+      'Ten attack techniques, refusal classification and what an attack success rate of 50% actually means, from aisafetyredteaming.',
+    href: 'https://github.com/Sharif899/aisafetyredteaming#readme',
   },
   {
     title: 'How I measure annotation quality',
     description:
-      'Ten named QA checks and IoU-based agreement: what a κ of 0.886 tells you about a labelling team, from annotation-qa-toolkit.',
-    href: 'https://github.com/Sharif899/annotation-qa-toolkit#readme',
+      'Ten named QA checks and IoU-based agreement: what a κ of 0.886 tells you about a labelling team, from annotationqatoolkit.',
+    href: 'https://github.com/Sharif899/annotationqatoolkit#readme',
   },
   {
     title: 'How I calibrate a classifier',
     description:
-      'Expected calibration error, Brier score and temperature scaling, with the caveat that fitting on the data you measure flatters the result, from ml-evaluation-toolkit.',
-    href: 'https://github.com/Sharif899/ml-evaluation-toolkit#readme',
+      'Expected calibration error, Brier score and temperature scaling, with the caveat that fitting on the data you measure flatters the result, from mlevaluationtoolkit.',
+    href: 'https://github.com/Sharif899/mlevaluationtoolkit#readme',
   },
 ]
